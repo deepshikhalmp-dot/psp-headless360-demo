@@ -33,6 +33,8 @@ The last sections apply this to the three agents built in this POC and list what
   - Coworker added 6–15 seconds on top of each request.
   - One request read the same data three times. This was fixed in Medication Support v7 on the same day: 2 actions instead of 3, card unchanged.
   
+  A second run with Audit and Feedback on (section 6.2) measured about 10,000–13,000 tokens per request, over 90% of them input context.
+  
   Credits per request are not visible yet: Digital Wallet shows no consumption cards in this org.
 
 ---
@@ -178,8 +180,41 @@ How to read it:
 - **Trust and guardrail steps:** every turn ran a pre-orchestration guardrail classifier and an instruction-adherence check. These are platform checks, not something we designed.
 - **Deterministic runs work.** The FAQ and handoff subagents called their flow without an LLM decision: router, then flow, then one LLM step for the answer.
 - **Coworker is the main time cost.** It added 6–15 seconds per request on top of the specialist agent.
-- **Tokens per call were not visible for this run.** Token counts sit in the Einstein Audit and Feedback data, which was off during the run. It was switched on afterwards (section 7), so later runs can add tokens per call.
+- **Tokens per call were not visible for this run** because Audit and Feedback was still off. They were measured in a second run (section 6.2).
 - **Credits are not visible yet.** Digital Wallet is installed, but its Consumption Cards show "No data available" and the consumption data object has 0 rows (checked at 15:15 UTC).
+
+### 6.2 Token footprint (Einstein Audit and Feedback, demo run 26 Nov 2026, 17:19–17:30 UTC)
+
+The same six read-only prompts were run again in Coworker on Medication Support v7 after Audit and Feedback was switched on. Every LLM call is recorded in `GenAIGatewayRequest__dlm` with model, prompt template and token counts.
+
+| Request (via Coworker) | Specialist agent LLM calls | Prompt template call | Coworker (Claude Haiku) | Specialist agent (GPT-4.1 + HyperClassifier) | Prompt template (GPT-4o) | **Total tokens** | Input / output | Largest single call |
+|---|---|---|---|---|---|---|---|---|
+| Today's exceptions (worklist card) | 5 | none | 947 | 12,275 | 0 | **13,222** | 13,109 / 113 | 4,819 (final answer with the item list) |
+| Refill ENR-0007 | 5 | none | 952 | 10,431 | 0 | **11,383** | 11,198 / 185 | 3,148 |
+| FAQ: delayed shipments | 4 | 1 (`PSP_Program_FAQ_Answer`) | 954 | 6,747 | 3,010 | **10,711** | 10,548 / 163 | 3,010 (FAQ text from the retriever) |
+| Care team handoff ENR-0007 | 4 | 1 (`PSP_Care_Team_Handoff_Summary`) | 961 | 8,577 | 1,845 | **11,383** | 10,281 / 1,102 | 3,820 |
+| Resolution plan | 4 | none | 954 | 9,255 | 0 | **10,209** | 9,337 / 872 | 4,541 (plan with all items) |
+| Exceptions ENR-0063 | 5 | none | 960 | 10,967 | 0 | **11,927** | 11,790 / 137 | 3,477 |
+| **All six** | | | | | | **68,835** | | |
+
+How to read it:
+
+- **About 10,000–13,000 tokens per request.** Over 90% are input tokens (context), and the answers themselves are small.
+- **Each reasoning pass resends the base context.** Every GPT-4.1 reasoning call started at about 2,500–2,600 input tokens: system instructions, the platform safety guardrails, tool definitions and history. Each extra pass (for example the model calling an action and then answering) costs roughly another 2,600–3,000 tokens. Fewer passes and shorter instructions save the most.
+- **Fixed overhead per request:** about 1,000 tokens for a structured-output classification call, about 900–1,000 for the HyperClassifier router, and about 950 for Coworker's Claude Haiku call.
+- **The largest calls carry data:** the final answer with the exceptions list (4.8k), the plan (4.5k) and the FAQ prompt template with the retrieved FAQ text (3.0k). Keeping action outputs and retrieved chunks small reduces these directly.
+- **Not included:** Coworker's main model (Claude Sonnet) is logged with 0 tokens, so its usage is not visible in this data. Real totals per request are higher than the table shows.
+- **Platform checks:** the guardrail and citation evaluations (`EinsteinTextEval`) are logged with 0 tokens.
+
+Query used (Data 360 SQL):
+
+```sql
+SELECT timestamp__c, feature__c, model__c, promptTemplateDevName__c,
+       promptTokens__c, completionTokens__c, totalTokens__c, sessionId__c
+FROM GenAIGatewayRequest__dlm
+WHERE timestamp__c > TIMESTAMP '2026-11-26 17:19:00'
+ORDER BY timestamp__c
+```
 
 ---
 
@@ -228,7 +263,7 @@ Still open. Items 3–5 need approval:
 4. **Optional:** install the **Coworker Insights** app (Setup → Agent Analytics).
 5. **Set consumption alerts** at agreed thresholds once a consumption card exists. This was tried on 26 Nov 2026: no cards are available in this org, so there is nothing to attach an alert to.
 6. **Confirm with the account team** whether this demo org has a Flex Credit (or other usage-based) entitlement. Digital Wallet and Consumption Tagging are installed, but there are no consumption cards. Without one, there are no credit numbers and no alerts. In a customer production org with Agentforce credits, the cards, alerts and agent breakdown work as described in section 3.
-7. Re-run the demo prompts and add credits (once visible) and tokens per call (Audit and Feedback is now on) to section 6.1.
+7. Add credits per request to section 6 once a consumption card exists. Tokens per request were measured on 26 Nov 2026 (section 6.2).
 
 Before switching these on, check with the account team whether tracing and audit storage in Data 360, or Agent Optimization, use any Data 360 or Flex Credits.
 
