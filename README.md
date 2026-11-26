@@ -67,6 +67,7 @@ This repository holds only the PSP project. The rest of the demo org's metadata 
 | [docs/Demo-Script-Program-Exceptions-Desk.md](docs/Demo-Script-Program-Exceptions-Desk.md) | Presenter script with prompts and expected answers |
 | [docs/Plan-Program-Exceptions-Desk.md](docs/Plan-Program-Exceptions-Desk.md) | Phase plan and execution log of the Program Exceptions Desk |
 | [docs/PSP-Evidence-Guide.docx](docs/PSP-Evidence-Guide.docx) | Live execution evidence with screenshots for every channel |
+| [docs/Agent-Utilization-and-Cost-Guide.md](docs/Agent-Utilization-and-Cost-Guide.md) | How to measure agent usage, cost and effectiveness, design rules for low token use, and the POC agents' footprint |
 
 ## Deploy and test
 
