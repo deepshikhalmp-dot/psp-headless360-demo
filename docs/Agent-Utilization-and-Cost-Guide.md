@@ -150,7 +150,7 @@ Known trade-offs and lessons:
 
 - **Exceptions were read three times per card request (measured; fixed in v7).** In Medication Support v6 the counts were read by a deterministic `run` inside the reasoning instructions, and the model then called the card action, because an HXL card is only displayed when the model calls the action. After the action, the reasoning instructions were resolved again, so the `run` executed a second time. The trace showed `get_program_exceptions` → LLM → `get_worklist_card` → `get_program_exceptions` → LLM.
   - **Fix (v7, 26 Nov 2026):** the read moved to `before_reasoning`, which runs once before the reasoning loop.
-  - **Verified:** the preview trace of v7 shows `get_program_exceptions` once and `get_worklist_card` once, and the card still renders in Coworker.
+  - **Verified:** the Session Tracing data for the v7 draft preview (15:59 UTC) and a Coworker run on v7 (16:02 UTC) both show `get_program_exceptions` once and `get_worklist_card` once, and the card still renders in Coworker.
   - **Lesson for all agents:** a deterministic `run` placed in a subagent's reasoning instructions repeats on every reasoning pass, including after each action the model calls. When the subagent also has model-called actions, put the fetch in `before_reasoning`.
 - **Combined three-agent prompts are expensive and unreliable.** In testing, one Coworker prompt asking for the worklist, a plan and a handoff stopped after the card. Separate prompts were cheaper and complete.
 - **Prompt templates are extra LLM calls.** The FAQ answer and the handoff summary each add one call inside their flow.
@@ -166,7 +166,7 @@ Six read-only prompts were run in Agentforce Coworker as the presenter user. Ses
 | "Prepare a care team handoff for ENR-0007" | Care Resolution → care_team_handoff | 2 (router, answer) | 1 Flow (prompt template, 8.4 s) | 2 | 11.6 s | 26.3 s |
 | "Prepare a resolution plan for today's exceptions" | Care Resolution → resolution_plan | 2 (router, answer) | 1 Apex (exceptions) + Coworker agent catalog lookup | 2 | 4.6 s | 24.7 s |
 | "Show today's exceptions for ENR-0063" (v6) | Medication Support → program_exceptions | 3 (router, choose card, answer) | 3 Apex (exceptions ×2, card) | 2 | 3.2 s | 8.3 s |
-| Same request on **v7** (preview trace) | Medication Support → program_exceptions | 3 | **2 Apex** (exceptions, card) | n/a in preview | n/a | n/a |
+| "Show today's exceptions" on **v7** (Coworker, org trace 16:02 UTC) | Medication Support → program_exceptions | 3 (router, choose card, answer) | **2 Apex** (exceptions, card) | 2 | 1.7 s | n/a |
 
 How to read it:
 
