@@ -188,7 +188,7 @@ How to read it:
 | Capability | Status | Effect |
 |---|---|---|
 | Digital Wallet | **Installed 26 Nov 2026** (approved) | Consumption Cards show "No data available" (checked 15:15 UTC). Agent and action breakdown needs the Consumption Tagging app (separate install). Possibly no Flex Credit consumption is recorded for this demo org; to confirm with the account team |
-| Consumption alerts | **None** (0 records) | No early warning on spikes |
+| Consumption alerts | **Cannot be set** (checked 26 Nov 2026) | Alerts are set on a consumption card, and Digital Wallet shows "No consumption cards available" for this org. Evidence: `docs/evidence/monitoring-no-consumption-cards.png` |
 | Agentforce Session Tracing | **On since 26 Nov 2026** (approved) | Per-turn traces of LLM calls and actions are stored in Data 360 from now on |
 | Agent Optimization | **On** (switched on automatically with Session Tracing) | Intent and quality analysis; uses generative AI |
 | Agent Optimizer in Observability (beta) | Off | Not requested |
@@ -226,8 +226,8 @@ Still open. Items 3–5 need approval:
    - Agent Platform Tracing (action traces)
    - Knowledge/RAG Quality metrics (FAQ retriever)
 4. **Optional:** install the **Coworker Insights** app (Setup → Agent Analytics).
-5. **Set consumption alerts** in Digital Wallet at agreed thresholds.
-6. **Confirm with the account team** whether this demo org records Agentforce consumption. Digital Wallet and Consumption Tagging are installed, but Consumption Cards showed no data on 26 Nov 2026.
+5. **Set consumption alerts** at agreed thresholds once a consumption card exists. This was tried on 26 Nov 2026: no cards are available in this org, so there is nothing to attach an alert to.
+6. **Confirm with the account team** whether this demo org has a Flex Credit (or other usage-based) entitlement. Digital Wallet and Consumption Tagging are installed, but there are no consumption cards. Without one, there are no credit numbers and no alerts. In a customer production org with Agentforce credits, the cards, alerts and agent breakdown work as described in section 3.
 7. Re-run the demo prompts and add credits (once visible) and tokens per call (Audit and Feedback is now on) to section 6.1.
 
 Before switching these on, check with the account team whether tracing and audit storage in Data 360, or Agent Optimization, use any Data 360 or Flex Credits.
