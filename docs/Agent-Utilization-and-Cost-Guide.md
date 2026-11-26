@@ -218,6 +218,16 @@ WHERE timestamp__c > TIMESTAMP '2026-11-26 17:19:00'
 ORDER BY timestamp__c
 ```
 
+### 6.3 Full guide run on the Medication Support Agent (26 Nov 2026, 19:30–20:40 UTC)
+
+The team's performance and cost guide (v1.1, nine steps) was run end to end on PSP Medication Support Agent v7, with v6 as the before version. The full record, with screenshots for every step, is in [PSP-Medication-Support-Agent-Performance-Cost-Run.docx](PSP-Medication-Support-Agent-Performance-Cost-Run.docx). What it added to this guide:
+
+- **Actions versus tokens.** With the same 7 test cases in Testing Center, v7 ran 6 actions for the 3 exceptions requests and v6 ran 9, but the tokens were the same (34,441 versus 34,444). A repeated deterministic action costs credits, not tokens. Only extra reasoning passes cost tokens.
+- **Fixed cost per session.** Every new session makes a session-start model call (1,054 tokens) and a guardrail classifier call (about 930 tokens) before any reasoning.
+- **Building and testing cost more than running.** Each Builder Preview turn also made a preview-summary call (`nextGenAuthoring`) of 23,600–43,700 tokens, 3–8 times the agent's own tokens. A Testing Center suite of 7 cases used about 64,000 agent tokens plus about 20,600 tokens of scoring calls.
+- **Testing Center checks have limits.** The action check passed v6 despite the repeated action, and the subagent check reported `agent_router` instead of the real subagent. Look for waste in the traces (Session Tracing), not only in pass rates.
+- **The run found a correctness gap.** v7 answered "patient not found" without calling the lookup action (3 of 3 runs). Only the action check caught it; the response check passed it.
+
 ---
 
 ## 7. What is switched on in the POC org (checked and updated 26 Nov 2026)

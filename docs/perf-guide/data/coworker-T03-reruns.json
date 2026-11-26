@@ -1,0 +1,12 @@
+{
+ "T03-run2": {
+  "start_utc": "2026-11-26 20:22:16",
+  "elapsed": 15.1,
+  "result": "Card with 3 delayed shipments shown"
+ },
+ "T03-run3": {
+  "start_utc": "2026-11-26 20:25:49",
+  "elapsed": 18.1,
+  "result": "Card with 3 delayed shipments shown"
+ }
+}

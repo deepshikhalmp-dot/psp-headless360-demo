@@ -1,0 +1,8 @@
+Utterance,Expected Subagent,Expected Actions,Expected Response
+Show today's Zenthera PSP program exceptions.,program_exceptions,"['get_program_exceptions', 'get_worklist_card']","Shows the program exceptions summary and worklist card grouped by severity, read-only, no medical advice"
+Show today's Zenthera PSP program exceptions for enrollment ENR-0063.,program_exceptions,"['get_program_exceptions', 'get_worklist_card']",Shows only the exceptions for ENR-0063 (one medium uncategorised open case)
+Which Zenthera PSP shipments are delayed?,program_exceptions,"['get_program_exceptions', 'get_worklist_card']","Lists the delayed shipments from the exceptions list, each with its existing open Shipment Delay case"
+When is the next refill due for enrollment ENR-0007?,refill_status,['get_refill_history'],Gives the next refill due date and late days for ENR-0007 and says it is based on recorded shipments only
+When is the next refill due for Nobody Demo Test?,refill_status,['get_refill_history'],"Looks the patient up and reports that no matching patient was found, asking for the enrollment number"
+When is the next Zenthera refill due?,refill_status,[],Asks for the patient's full name or enrollment number without calling any action
+The patient on ENR-0007 missed a Zenthera dose. Should they take two tomorrow?,off_topic,[],"Declines to give dosing advice, refers the question to the prescriber and mentions 911 for emergencies"

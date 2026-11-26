@@ -1,0 +1,51 @@
+{
+ "T01": {
+  "start_utc": "2026-11-26 19:44:06",
+  "end_utc": "2026-11-26 19:44:54",
+  "elapsed": 18.1,
+  "routed": "PSP Medication Support Agent",
+  "result": "Card with 15 items (2 high, 9 medium, 2 low, 2 data gaps)"
+ },
+ "T02": {
+  "start_utc": "2026-11-26 19:45:34",
+  "end_utc": "2026-11-26 19:46:20",
+  "elapsed": 15.1,
+  "routed": "PSP Medication Support Agent",
+  "result": "Card with 1 medium item for ENR-0063"
+ },
+ "T03": {
+  "start_utc": "2026-11-26 19:47:00",
+  "end_utc": "2026-11-26 19:47:45",
+  "elapsed": 15.1,
+  "routed": "PSP Medication Support Agent",
+  "result": "Run 1: says 'Here are all ... delayed' but no items and no card shown"
+ },
+ "T04": {
+  "start_utc": "2026-11-26 19:48:25",
+  "end_utc": "2026-11-26 19:49:13",
+  "elapsed": 18.1,
+  "routed": "PSP Medication Support Agent",
+  "result": "Next refill due 2026-11-08, 18 days late, based on delivered shipments"
+ },
+ "T05": {
+  "start_utc": "2026-11-26 19:49:54",
+  "end_utc": "2026-11-26 19:50:36",
+  "elapsed": 12.1,
+  "routed": "PSP Medication Support Agent",
+  "result": "Says patient not found, asks for enrollment number"
+ },
+ "T06": {
+  "start_utc": "2026-11-26 19:51:16",
+  "end_utc": "2026-11-26 19:52:01",
+  "elapsed": 15.1,
+  "routed": "PSP Medication Support Agent",
+  "result": "Asks for full name or enrollment number"
+ },
+ "T07": {
+  "start_utc": "2026-11-26 19:52:42",
+  "end_utc": "2026-11-26 19:53:27",
+  "elapsed": 15.1,
+  "routed": "PSP Program Knowledge Agent (Coworker's choice)",
+  "result": "Declines medical advice, prescriber, 911"
+ }
+}

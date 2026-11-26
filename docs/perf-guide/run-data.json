@@ -1,0 +1,1410 @@
+{
+ "window_utc": [
+  "2026-11-26 19:30:00",
+  "2026-11-26 20:40:00"
+ ],
+ "preview": {
+  "T01": {
+   "session": "01a2195c-e95c-77b7-a1db-497f1505676f",
+   "tokens": 12278,
+   "input": 12185,
+   "output": 93,
+   "llm_calls": 5,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     929,
+     1,
+     930
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2600,
+     13,
+     2613
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2856,
+     12,
+     2868
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     4761,
+     52,
+     4813
+    ]
+   ],
+   "actions": [
+    "get_program_exceptions",
+    "get_worklist_card"
+   ],
+   "llm_steps": 3,
+   "agent_seconds": 2.48,
+   "audit_complete": true,
+   "builder_summary_tokens": 40792
+  },
+  "T02": {
+   "session": "01a2195d-b72a-7a65-859f-d6da89136820",
+   "tokens": 10974,
+   "input": 10854,
+   "output": 120,
+   "llm_calls": 5,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     936,
+     1,
+     937
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2607,
+     13,
+     2620
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2863,
+     22,
+     2885
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     3409,
+     69,
+     3478
+    ]
+   ],
+   "actions": [
+    "get_program_exceptions",
+    "get_worklist_card"
+   ],
+   "llm_steps": 3,
+   "agent_seconds": 2.63,
+   "audit_complete": true,
+   "builder_summary_tokens": 42965
+  },
+  "T03": {
+   "session": "01a2195e-3116-7e77-b6f7-e69f1b00a6fa",
+   "tokens": 11182,
+   "input": 11063,
+   "output": 119,
+   "llm_calls": 5,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     929,
+     1,
+     930
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2600,
+     13,
+     2613
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2856,
+     20,
+     2876
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     3639,
+     70,
+     3709
+    ]
+   ],
+   "actions": [
+    "get_program_exceptions",
+    "get_worklist_card"
+   ],
+   "llm_steps": 3,
+   "agent_seconds": 2.48,
+   "audit_complete": true,
+   "builder_summary_tokens": 43708
+  },
+  "T04": {
+   "session": "01a2195e-adee-7bb6-b08f-a47fa37a3cae",
+   "tokens": 10433,
+   "input": 10261,
+   "output": 172,
+   "llm_calls": 5,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     935,
+     1,
+     936
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2606,
+     13,
+     2619
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2653,
+     21,
+     2674
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     3028,
+     122,
+     3150
+    ]
+   ],
+   "actions": [
+    "get_refill_history"
+   ],
+   "llm_steps": 3,
+   "agent_seconds": 2.25,
+   "audit_complete": true,
+   "builder_summary_tokens": 26204
+  },
+  "T05": {
+   "session": "01a2195f-6088-7700-80b6-77cf80ccd0e9",
+   "tokens": 7302,
+   "input": 7224,
+   "output": 78,
+   "llm_calls": 4,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     932,
+     1,
+     933
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2603,
+     13,
+     2616
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2650,
+     49,
+     2699
+    ]
+   ],
+   "actions": [],
+   "llm_steps": 2,
+   "agent_seconds": 1.36,
+   "audit_complete": true,
+   "builder_summary_tokens": 36650
+  },
+  "T06": {
+   "session": "01a21960-185f-76e5-a0d4-7c14f929d834",
+   "tokens": 7274,
+   "input": 7218,
+   "output": 56,
+   "llm_calls": 4,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     930,
+     1,
+     931
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2601,
+     13,
+     2614
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2648,
+     27,
+     2675
+    ]
+   ],
+   "actions": [],
+   "llm_steps": 2,
+   "agent_seconds": 0.9,
+   "audit_complete": true,
+   "builder_summary_tokens": 36390
+  },
+  "T07": {
+   "session": "01a21960-cb6b-7743-8e47-accfbbd79da7",
+   "tokens": 4666,
+   "input": 4592,
+   "output": 74,
+   "llm_calls": 3,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     941,
+     1,
+     942
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2612,
+     58,
+     2670
+    ]
+   ],
+   "actions": [],
+   "llm_steps": 1,
+   "agent_seconds": 0.93,
+   "audit_complete": true,
+   "builder_summary_tokens": 23593
+  }
+ },
+ "coworker": {
+  "T01": {
+   "session": "01a21963-1ee5-7948-a1cb-ff908dd5b728",
+   "tokens": 12283,
+   "input": 12177,
+   "output": 106,
+   "llm_calls": 5,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     927,
+     1,
+     928
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2598,
+     13,
+     2611
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2854,
+     12,
+     2866
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     4759,
+     65,
+     4824
+    ]
+   ],
+   "actions": [
+    "get_program_exceptions",
+    "get_worklist_card"
+   ],
+   "llm_steps": 3,
+   "agent_seconds": 2.79,
+   "audit_complete": true,
+   "agent": "PSP_Medication_Support_Agent",
+   "coworker_planner_tokens": 949,
+   "coworker_zero_token_rows": 1
+  },
+  "T02": {
+   "session": "01a21964-70b2-7615-bedf-68222e6063b8",
+   "tokens": 10943,
+   "input": 10846,
+   "output": 97,
+   "llm_calls": 5,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     934,
+     1,
+     935
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2605,
+     13,
+     2618
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2861,
+     22,
+     2883
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     3407,
+     46,
+     3453
+    ]
+   ],
+   "actions": [
+    "get_program_exceptions",
+    "get_worklist_card"
+   ],
+   "llm_steps": 3,
+   "agent_seconds": 2.59,
+   "audit_complete": true,
+   "agent": "PSP_Medication_Support_Agent",
+   "coworker_planner_tokens": 960,
+   "coworker_zero_token_rows": 1
+  },
+  "T03": {
+   "session": "01a21965-bfbf-7bc9-ab56-78b1ca9d09a2",
+   "tokens": 11188,
+   "input": 11062,
+   "output": 126,
+   "llm_calls": 5,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     929,
+     1,
+     930
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2600,
+     13,
+     2613
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2856,
+     20,
+     2876
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     3638,
+     77,
+     3715
+    ]
+   ],
+   "actions": [
+    "get_program_exceptions",
+    "get_worklist_card"
+   ],
+   "llm_steps": 3,
+   "agent_seconds": 2.46,
+   "audit_complete": true,
+   "agent": "PSP_Medication_Support_Agent",
+   "coworker_planner_tokens": 950,
+   "coworker_zero_token_rows": 1
+  },
+  "T04": {
+   "session": "01a21967-0e44-7990-98ff-193cb67455c3",
+   "tokens": 10433,
+   "input": 10261,
+   "output": 172,
+   "llm_calls": 5,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     935,
+     1,
+     936
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2606,
+     13,
+     2619
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2653,
+     21,
+     2674
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     3028,
+     122,
+     3150
+    ]
+   ],
+   "actions": [
+    "get_refill_history"
+   ],
+   "llm_steps": 3,
+   "agent_seconds": 2.15,
+   "audit_complete": true,
+   "agent": "PSP_Medication_Support_Agent",
+   "coworker_planner_tokens": 952,
+   "coworker_zero_token_rows": 1
+  },
+  "T05": {
+   "session": "01a21968-5f53-7ee0-bbda-43074cb0eecc",
+   "tokens": 7302,
+   "input": 7224,
+   "output": 78,
+   "llm_calls": 4,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     932,
+     1,
+     933
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2603,
+     13,
+     2616
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2650,
+     49,
+     2699
+    ]
+   ],
+   "actions": [],
+   "llm_steps": 2,
+   "agent_seconds": 1.07,
+   "audit_complete": true,
+   "agent": "PSP_Medication_Support_Agent",
+   "coworker_planner_tokens": 947,
+   "coworker_zero_token_rows": 1
+  },
+  "T06": {
+   "session": "01a21969-a782-7720-a88d-d5cdf1fc3cda",
+   "tokens": 7274,
+   "input": 7218,
+   "output": 56,
+   "llm_calls": 4,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     930,
+     1,
+     931
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2601,
+     13,
+     2614
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2648,
+     27,
+     2675
+    ]
+   ],
+   "actions": [],
+   "llm_steps": 2,
+   "agent_seconds": 0.87,
+   "audit_complete": true,
+   "agent": "PSP_Medication_Support_Agent",
+   "coworker_planner_tokens": 948,
+   "coworker_zero_token_rows": 1
+  },
+  "T07": {
+   "session": "01a2196a-f724-79c3-89c6-212521a66562",
+   "tokens": 6605,
+   "input": 6489,
+   "output": 116,
+   "llm_calls": 4,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     589,
+     15,
+     604
+    ],
+    [
+     "EinsteinHyperClassifier",
+     903,
+     1,
+     904
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2505,
+     12,
+     2517
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2492,
+     88,
+     2580
+    ]
+   ],
+   "actions": [],
+   "llm_steps": 2,
+   "agent_seconds": 1.74,
+   "audit_complete": true,
+   "agent": "PSP_Program_Knowledge_Agent",
+   "coworker_planner_tokens": 965,
+   "coworker_zero_token_rows": 1
+  },
+  "T03-run2": {
+   "session": "01a21986-0768-7347-9602-ec78d082fd26",
+   "tokens": 11189,
+   "input": 11063,
+   "output": 126,
+   "llm_calls": 5,
+   "calls": [
+    [
+     "EinsteinHyperClassifier",
+     929,
+     1,
+     930
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2600,
+     13,
+     2613
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2856,
+     20,
+     2876
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     3639,
+     77,
+     3716
+    ]
+   ],
+   "actions": [
+    "get_program_exceptions",
+    "get_worklist_card"
+   ],
+   "llm_steps": 3,
+   "agent_seconds": 2.54,
+   "audit_complete": true
+  },
+  "T03-run3": {
+   "session": "01a21989-521d-7848-a30a-9607b6442fe5",
+   "tokens": 11165,
+   "input": 11061,
+   "output": 104,
+   "llm_calls": 5,
+   "calls": [
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     1039,
+     15,
+     1054
+    ],
+    [
+     "EinsteinHyperClassifier",
+     929,
+     1,
+     930
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2600,
+     13,
+     2613
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     2856,
+     20,
+     2876
+    ],
+    [
+     "OpenAI-gpt-4.1-2025-04-14",
+     3637,
+     55,
+     3692
+    ]
+   ],
+   "actions": [
+    "get_program_exceptions",
+    "get_worklist_card"
+   ],
+   "llm_steps": 3,
+   "agent_seconds": 2.35,
+   "audit_complete": true
+  }
+ },
+ "testing_center": {
+  "6": {
+   "T01": {
+    "session": "01a2197b-e970-7723-8fcc-73deac27d5e0",
+    "tokens": 12290,
+    "input": 12186,
+    "output": 104,
+    "llm_calls": 5,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      929,
+      1,
+      930
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2600,
+      13,
+      2613
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2856,
+      12,
+      2868
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      4762,
+      63,
+      4825
+     ]
+    ],
+    "actions": [
+     "get_program_exceptions",
+     "get_worklist_card",
+     "get_program_exceptions"
+    ],
+    "llm_steps": 3,
+    "agent_seconds": 3.28,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "FAILED",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "['get_program_exceptions', 'get_worklist_card', 'get_program_exceptions', 'show_tool_results']",
+    "actual_subagent_tc": "agent_router"
+   },
+   "T02": {
+    "session": "01a2197b-e9d4-7b31-89e5-81a7a6ec14e3",
+    "tokens": 10964,
+    "input": 10857,
+    "output": 107,
+    "llm_calls": 5,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      936,
+      1,
+      937
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2607,
+      13,
+      2620
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2863,
+      22,
+      2885
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      3412,
+      56,
+      3468
+     ]
+    ],
+    "actions": [
+     "get_program_exceptions",
+     "get_worklist_card",
+     "get_program_exceptions"
+    ],
+    "llm_steps": 3,
+    "agent_seconds": 2.64,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "FAILED",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "['get_program_exceptions', 'get_worklist_card', 'get_program_exceptions', 'show_tool_results']",
+    "actual_subagent_tc": "agent_router"
+   },
+   "T03": {
+    "session": "01a2197b-e9da-7769-bfbd-aa92eb6ba7cb",
+    "tokens": 11190,
+    "input": 11063,
+    "output": 127,
+    "llm_calls": 5,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      929,
+      1,
+      930
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2600,
+      13,
+      2613
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2856,
+      20,
+      2876
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      3639,
+      78,
+      3717
+     ]
+    ],
+    "actions": [
+     "get_program_exceptions",
+     "get_worklist_card",
+     "get_program_exceptions"
+    ],
+    "llm_steps": 3,
+    "agent_seconds": 3.05,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "FAILED",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "['get_program_exceptions', 'get_worklist_card', 'get_program_exceptions', 'show_tool_results']",
+    "actual_subagent_tc": "agent_router"
+   },
+   "T04": {
+    "session": "01a2197b-ea46-7021-8797-7663eaf55f4c",
+    "tokens": 10434,
+    "input": 10258,
+    "output": 176,
+    "llm_calls": 5,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      935,
+      1,
+      936
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2606,
+      13,
+      2619
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2653,
+      21,
+      2674
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      3025,
+      126,
+      3151
+     ]
+    ],
+    "actions": [
+     "get_refill_history"
+    ],
+    "llm_steps": 3,
+    "agent_seconds": 2.18,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "SUCCESS",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "['get_refill_history']",
+    "actual_subagent_tc": "refill_status"
+   },
+   "T05": {
+    "session": "01a2197b-ea6b-70f9-833e-85c61f06f98c",
+    "tokens": 10147,
+    "input": 10055,
+    "output": 92,
+    "llm_calls": 5,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      932,
+      1,
+      933
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2603,
+      13,
+      2616
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2650,
+      18,
+      2668
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2831,
+      45,
+      2876
+     ]
+    ],
+    "actions": [
+     "get_refill_history"
+    ],
+    "llm_steps": 3,
+    "agent_seconds": 1.97,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "SUCCESS",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "['get_refill_history']",
+    "actual_subagent_tc": "refill_status"
+   },
+   "T06": {
+    "session": "01a2197c-d52d-7f10-becf-0f265f14406c",
+    "tokens": 7274,
+    "input": 7218,
+    "output": 56,
+    "llm_calls": 4,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      930,
+      1,
+      931
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2601,
+      13,
+      2614
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2648,
+      27,
+      2675
+     ]
+    ],
+    "actions": [],
+    "llm_steps": 2,
+    "agent_seconds": 0.87,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "SUCCESS",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "[]",
+    "actual_subagent_tc": "refill_status"
+   },
+   "T07": {
+    "session": "01a2197c-d531-77c0-8bbb-70057b2dd100",
+    "tokens": 4663,
+    "input": 4592,
+    "output": 71,
+    "llm_calls": 3,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      941,
+      1,
+      942
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2612,
+      55,
+      2667
+     ]
+    ],
+    "actions": [],
+    "llm_steps": 1,
+    "agent_seconds": 0.78,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "FAILED",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "[]",
+    "actual_subagent_tc": "topic_selector"
+   }
+  },
+  "7": {
+   "T01": {
+    "session": "01a21976-77ac-72d4-a52f-1beed71240b0",
+    "tokens": 12280,
+    "input": 12186,
+    "output": 94,
+    "llm_calls": 5,
+    "calls": [
+     [
+      "EinsteinHyperClassifier",
+      929,
+      1,
+      930
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2600,
+      13,
+      2613
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2856,
+      12,
+      2868
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      4762,
+      53,
+      4815
+     ]
+    ],
+    "actions": [
+     "get_program_exceptions",
+     "get_worklist_card"
+    ],
+    "llm_steps": 3,
+    "agent_seconds": 2.27,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "FAILED",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "['get_program_exceptions', 'get_worklist_card', 'show_tool_results']",
+    "actual_subagent_tc": "agent_router"
+   },
+   "T02": {
+    "session": "01a21976-7847-74b9-83b3-d213cc38d3b0",
+    "tokens": 10975,
+    "input": 10854,
+    "output": 121,
+    "llm_calls": 5,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      936,
+      1,
+      937
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2607,
+      13,
+      2620
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2863,
+      22,
+      2885
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      3409,
+      70,
+      3479
+     ]
+    ],
+    "actions": [
+     "get_program_exceptions",
+     "get_worklist_card"
+    ],
+    "llm_steps": 3,
+    "agent_seconds": 3.3,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "FAILED",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "['get_program_exceptions', 'get_worklist_card', 'show_tool_results']",
+    "actual_subagent_tc": "agent_router"
+   },
+   "T03": {
+    "session": "01a21976-78ab-71e0-8ade-37f17432b693",
+    "tokens": 11186,
+    "input": 11062,
+    "output": 124,
+    "llm_calls": 5,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      929,
+      1,
+      930
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2600,
+      13,
+      2613
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2856,
+      20,
+      2876
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      3638,
+      75,
+      3713
+     ]
+    ],
+    "actions": [
+     "get_program_exceptions",
+     "get_worklist_card"
+    ],
+    "llm_steps": 3,
+    "agent_seconds": 2.62,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "FAILED",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "['get_program_exceptions', 'get_worklist_card', 'show_tool_results']",
+    "actual_subagent_tc": "agent_router"
+   },
+   "T04": {
+    "session": "01a21976-78cc-7ed0-b9cb-5f2e931e4c1d",
+    "tokens": 10431,
+    "input": 10259,
+    "output": 172,
+    "llm_calls": 5,
+    "calls": [
+     [
+      "EinsteinHyperClassifier",
+      935,
+      1,
+      936
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2606,
+      13,
+      2619
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2653,
+      21,
+      2674
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      3026,
+      122,
+      3148
+     ]
+    ],
+    "actions": [
+     "get_refill_history"
+    ],
+    "llm_steps": 3,
+    "agent_seconds": 2.06,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "SUCCESS",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "['get_refill_history']",
+    "actual_subagent_tc": "refill_status"
+   },
+   "T05": {
+    "session": "01a21976-7978-7b94-bbdf-0fbc75b74784",
+    "tokens": 7309,
+    "input": 7224,
+    "output": 85,
+    "llm_calls": 4,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      932,
+      1,
+      933
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2603,
+      13,
+      2616
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2650,
+      56,
+      2706
+     ]
+    ],
+    "actions": [],
+    "llm_steps": 2,
+    "agent_seconds": 1.21,
+    "audit_complete": true,
+    "action_result": "FAILED",
+    "subagent_result": "SUCCESS",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "[]",
+    "actual_subagent_tc": "refill_status"
+   },
+   "T06": {
+    "session": "01a21977-646d-75d4-83c5-aadf7c7b333c",
+    "tokens": 7274,
+    "input": 7218,
+    "output": 56,
+    "llm_calls": 4,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      930,
+      1,
+      931
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2601,
+      13,
+      2614
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2648,
+      27,
+      2675
+     ]
+    ],
+    "actions": [],
+    "llm_steps": 2,
+    "agent_seconds": 0.88,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "SUCCESS",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "[]",
+    "actual_subagent_tc": "refill_status"
+   },
+   "T07": {
+    "session": "01a21977-64d9-7b9b-a161-23f0041f0cd3",
+    "tokens": 4658,
+    "input": 4592,
+    "output": 66,
+    "llm_calls": 3,
+    "calls": [
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      1039,
+      15,
+      1054
+     ],
+     [
+      "EinsteinHyperClassifier",
+      941,
+      1,
+      942
+     ],
+     [
+      "OpenAI-gpt-4.1-2025-04-14",
+      2612,
+      50,
+      2662
+     ]
+    ],
+    "actions": [],
+    "llm_steps": 1,
+    "agent_seconds": 0.77,
+    "audit_complete": true,
+    "action_result": "SUCCESS",
+    "subagent_result": "FAILED",
+    "outcome_result": "SUCCESS",
+    "actual_actions_tc": "[]",
+    "actual_subagent_tc": "topic_selector"
+   }
+  }
+ },
+ "overhead": {
+  "by_feature": {
+   "Agentforce Builder Preview": {
+    "calls": 38,
+    "tokens": 78495
+   },
+   "Agentforce Conversation Explorer": {
+    "calls": 7,
+    "tokens": 7425
+   },
+   "agentforce-standard-evals": {
+    "calls": 35,
+    "tokens": 55438
+   },
+   "nextGenAuthoring": {
+    "calls": 8,
+    "tokens": 291151
+   },
+   "Guardrails and Citations": {
+    "calls": 32,
+    "tokens": 0
+   },
+   "Agentforce Coworker": {
+    "calls": 60,
+    "tokens": 96953
+   },
+   "Testing Center Setup": {
+    "calls": 77,
+    "tokens": 131075
+   }
+  },
+  "tc_judge_v7": 20645,
+  "tc_judge_v6": 20654
+ },
+ "audit_max_timestamp": "2026-11-26T20:26:03.41+00:00"
+}
