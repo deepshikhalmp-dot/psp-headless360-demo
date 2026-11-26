@@ -28,7 +28,7 @@ The last sections apply this to the three agents built in this POC and list what
   - triggers that start an agent on every record change
   - loops where an agent's update starts the agent again
   - retries and scheduled jobs over many records
-- **In our POC org none of the measurement tools are switched on yet** (section 7). The three agents follow the design rules, but their consumption has not been measured. Section 8 lists the switches needed, for approval.
+- **In our POC org, Digital Wallet and Agentforce Session Tracing were switched on on 26 Nov 2026** (section 7). There is no usage data from before that date. The three agents follow the design rules; their real consumption will be measured with the next demo run (section 8).
 
 ---
 
@@ -158,14 +158,15 @@ Estimated footprint per request. These figures come from the design and have **n
 
 ---
 
-## 7. What is switched on in the POC org (read-only check, 26 Nov 2026)
+## 7. What is switched on in the POC org (checked and updated 26 Nov 2026)
 
 | Capability | Status | Effect |
 |---|---|---|
-| Digital Wallet | **Not installed** (Setup shows "Get Started") | No credit view per agent or action |
+| Digital Wallet | **Installed 26 Nov 2026** (approved) | Credit view per agent and action from now on; data is near-real-time |
 | Consumption alerts | **None** (0 records) | No early warning on spikes |
-| Agentforce Session Tracing | **Off** | No per-turn trace of LLM calls and actions |
-| Agent Optimization / Agent Optimizer (beta) | **Off** | No intent and quality analysis |
+| Agentforce Session Tracing | **On since 26 Nov 2026** (approved) | Per-turn traces of LLM calls and actions are stored in Data 360 from now on |
+| Agent Optimization | **On** (switched on automatically with Session Tracing) | Intent and quality analysis; uses generative AI |
+| Agent Optimizer in Observability (beta) | Off | Not requested |
 | Agent Platform Tracing | **Off** | No Flow/Apex action traces |
 | Einstein Audit and Feedback | **Off** | No prompt/response audit data |
 | Knowledge/RAG Quality Data and Metrics | **Off** | No retriever quality metrics for the FAQ |
@@ -173,16 +174,19 @@ Estimated footprint per request. These figures come from the design and have **n
 | Conversational Memory for Agentforce | **On** (org setting) | Check which agents use it; memory adds context |
 | Data Cloud (Data 360) | Enabled | Required for tracing and audit data |
 
-Result: there is **no historical usage data** for the three POC agents. Measurement can only start from the moment the tools are switched on.
+Result: there is **no usage data from before 26 Nov 2026** for the three POC agents. Digital Wallet and Session Tracing collect data from now on. The other settings were left unchanged.
 
 ---
 
-## 8. Proposed next steps (for approval, not done)
+## 8. Next steps
 
-These changes switch on product features, so each needs approval before it is made:
+Done on 26 Nov 2026 (approved):
 
-1. **Install Digital Wallet:** Setup → Digital Wallet → Get Started.
-2. **Turn on Agentforce Session Tracing:** Setup → Einstein Audit, Analytics, and Monitoring Setup. This also turns on Agent Optimization.
+1. **Digital Wallet installed:** Setup → Digital Wallet → Get Started. Evidence: `docs/evidence/monitoring-digital-wallet-installed.png`.
+2. **Agentforce Session Tracing turned on:** Setup → Einstein Audit, Analytics, and Monitoring Setup. Agent Optimization switched on with it. Evidence: `docs/evidence/monitoring-session-tracing-on.png`.
+
+Still open. Items 3–5 need approval; item 6 is a test run:
+
 3. **Optional:**
    - Einstein Audit and Feedback (prompt-level data)
    - Agent Platform Tracing (action traces)
