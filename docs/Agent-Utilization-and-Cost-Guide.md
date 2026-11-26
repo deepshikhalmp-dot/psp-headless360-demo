@@ -122,6 +122,8 @@ Each extra hop adds another call, for example a coordinator agent (such as Cowor
 
 ### Before go-live checklist
 
+For the full step-by-step procedure in the Salesforce UI, see [Agent Cost Pre-check Runbook](Agent-Cost-Precheck-Runbook.md).
+
 - [ ] Estimate load: sessions per day × actions per session × credits per action
 - [ ] Measure real consumption in a sandbox with Digital Wallet
 - [ ] Session Tracing on; review LLM calls per turn for the main use cases

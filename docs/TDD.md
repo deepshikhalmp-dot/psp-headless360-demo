@@ -237,6 +237,7 @@ Use case 7 with its agents is called the **Program Exceptions Desk**. Its phase 
 | Demo script | Document | `docs/Demo-Script-Program-Exceptions-Desk.md` | Refreshed 2026-11-22 |
 | Evidence Guide | Word document with live screenshots (generated). Section 2 "The use case at a glance": use case story, one-page flow diagram, channels table, use case x channel table, guardrails | `docs/PSP-Evidence-Guide.docx`; screenshots `docs/evidence-guide/screens/`; builder `tools/evidence-guide/build_doc.py`; flow diagram source `tools/evidence-guide/usecase_flow.html`, rendered by `render_flow.py` to `screens/U01-use-case-flow.png` | Generated 2026-11-26 |
 | Agent Utilization and Cost Guide | How to measure agent usage, cost and effectiveness; design rules for low token/credit use; POC agent footprint; org monitoring status | `docs/Agent-Utilization-and-Cost-Guide.md` | Written 2026-11-26 |
+| Agent Cost Pre-check Runbook | Salesforce-UI-only procedure to check an agent's credits and tokens before deployment | `docs/Agent-Cost-Precheck-Runbook.md` | Written 2026-11-26 |
 
 ---
 
