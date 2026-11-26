@@ -31,7 +31,7 @@ The last sections apply this to the three agents built in this POC and list what
 - **In our POC org, Digital Wallet and Agentforce Session Tracing were switched on on 26 Nov 2026** (section 7). A measured demo run the same day (section 6.1) showed:
   - Each specialist agent used 2–3 LLM steps and 1–3 actions per request.
   - Coworker added 6–15 seconds on top of each request.
-  - One request read the same data three times, which is a fixable design issue.
+  - One request read the same data three times. This was fixed in Medication Support v7 on the same day: 2 actions instead of 3, card unchanged.
   
   Credits per request are not visible yet: Digital Wallet shows no consumption cards in this org.
 
@@ -148,7 +148,10 @@ What already keeps usage low:
 
 Known trade-offs and lessons:
 
-- **Exceptions are read three times per card request (measured).** In the Medication Support Agent the counts are read by a deterministic `run`, and the model then calls the card action, because an HXL card is only displayed when the model calls the action. After the action, the subagent's reasoning instructions are evaluated again, so the deterministic `run` executes a second time. The trace shows `get_program_exceptions` → LLM → `get_worklist_card` → `get_program_exceptions` → LLM. Fix: run the counts only when the variable is still empty (a condition around the `run`), or drop the deterministic read and let the card action supply the counts. **Lesson for all agents:** a deterministic `run` placed in a subagent's reasoning instructions repeats on every reasoning pass, including after each action the model calls.
+- **Exceptions were read three times per card request (measured; fixed in v7).** In Medication Support v6 the counts were read by a deterministic `run` inside the reasoning instructions, and the model then called the card action, because an HXL card is only displayed when the model calls the action. After the action, the reasoning instructions were resolved again, so the `run` executed a second time. The trace showed `get_program_exceptions` → LLM → `get_worklist_card` → `get_program_exceptions` → LLM.
+  - **Fix (v7, 26 Nov 2026):** the read moved to `before_reasoning`, which runs once before the reasoning loop.
+  - **Verified:** the preview trace of v7 shows `get_program_exceptions` once and `get_worklist_card` once, and the card still renders in Coworker.
+  - **Lesson for all agents:** a deterministic `run` placed in a subagent's reasoning instructions repeats on every reasoning pass, including after each action the model calls. When the subagent also has model-called actions, put the fetch in `before_reasoning`.
 - **Combined three-agent prompts are expensive and unreliable.** In testing, one Coworker prompt asking for the worklist, a plan and a handoff stopped after the card. Separate prompts were cheaper and complete.
 - **Prompt templates are extra LLM calls.** The FAQ answer and the handoff summary each add one call inside their flow.
 
@@ -162,7 +165,8 @@ Six read-only prompts were run in Agentforce Coworker as the presenter user. Ses
 | "What is the PSP process for delayed shipments?" | Program Knowledge → program_faq | 2 (router, answer) | 1 Flow (retriever + prompt template, 5.9 s) | 2 | 7.1 s | 14.1 s |
 | "Prepare a care team handoff for ENR-0007" | Care Resolution → care_team_handoff | 2 (router, answer) | 1 Flow (prompt template, 8.4 s) | 2 | 11.6 s | 26.3 s |
 | "Prepare a resolution plan for today's exceptions" | Care Resolution → resolution_plan | 2 (router, answer) | 1 Apex (exceptions) + Coworker agent catalog lookup | 2 | 4.6 s | 24.7 s |
-| "Show today's exceptions for ENR-0063" | Medication Support → program_exceptions | 3 (router, choose card, answer) | 3 Apex (exceptions ×2, card) | 2 | 3.2 s | 8.3 s |
+| "Show today's exceptions for ENR-0063" (v6) | Medication Support → program_exceptions | 3 (router, choose card, answer) | 3 Apex (exceptions ×2, card) | 2 | 3.2 s | 8.3 s |
+| Same request on **v7** (preview trace) | Medication Support → program_exceptions | 3 | **2 Apex** (exceptions, card) | n/a in preview | n/a | n/a |
 
 How to read it:
 
@@ -174,7 +178,7 @@ How to read it:
 - **Trust and guardrail steps:** every turn ran a pre-orchestration guardrail classifier and an instruction-adherence check. These are platform checks, not something we designed.
 - **Deterministic runs work.** The FAQ and handoff subagents called their flow without an LLM decision: router, then flow, then one LLM step for the answer.
 - **Coworker is the main time cost.** It added 6–15 seconds per request on top of the specialist agent.
-- **Tokens per call are not visible.** Token counts sit in the Einstein Audit and Feedback data, which is off. The trace only holds gateway request ids.
+- **Tokens per call were not visible for this run.** Token counts sit in the Einstein Audit and Feedback data, which was off during the run. It was switched on afterwards (section 7), so later runs can add tokens per call.
 - **Credits are not visible yet.** Digital Wallet is installed, but its Consumption Cards show "No data available" and the consumption data object has 0 rows (checked at 15:15 UTC).
 
 ---
@@ -189,7 +193,8 @@ How to read it:
 | Agent Optimization | **On** (switched on automatically with Session Tracing) | Intent and quality analysis; uses generative AI |
 | Agent Optimizer in Observability (beta) | Off | Not requested |
 | Agent Platform Tracing | **Off** | No Flow/Apex action traces |
-| Einstein Audit and Feedback | **Off** | No prompt/response audit data |
+| Einstein Audit and Feedback | **On since 26 Nov 2026** (approved) | Prompt/response audit data, including token counts, from now on |
+| Consumption Tagging app | **Not installed: blocked** | Install needs the Data Cloud Architect permission set and the "Access to manage the template framework templates" permission on the installing admin, and a data space. Granting them is an access change that needs separate approval |
 | Knowledge/RAG Quality Data and Metrics | **Off** | No retriever quality metrics for the FAQ |
 | Agent Analytics app "Coworker Insights" | **Ready to install** | Coworker usage insights not available |
 | Conversational Memory for Agentforce | **On** (org setting) | Check which agents use it; memory adds context |
@@ -208,17 +213,21 @@ Done on 26 Nov 2026 (approved):
 
 Measured: one demo run on 26 Nov 2026 (section 6.1).
 
-Still open. Items 3–7 need approval:
+Also done on 26 Nov 2026 (approved): Einstein Audit and Feedback switched on; Medication Support Agent v7 published and activated (repeated exceptions read fixed).
+
+Still open. Items 3–6 need approval:
 
 3. **Optional:**
-   - Einstein Audit and Feedback (prompt-level data)
    - Agent Platform Tracing (action traces)
    - Knowledge/RAG Quality metrics (FAQ retriever)
 4. **Optional:** install the **Coworker Insights** app (Setup → Agent Analytics).
 5. **Set consumption alerts** in Digital Wallet at agreed thresholds.
-6. **Install the Consumption Tagging app** (Digital Wallet setup) for credits per agent and action, and confirm with the account team whether this org records Agentforce consumption at all.
-7. **Fix the repeated exceptions read** in the Medication Support Agent (section 6, known trade-offs). This is an Agent Script change: publish a new version and re-test the card.
-8. Re-run the demo prompts after items 3, 6 and 7, and add credits and tokens per request to section 6.1.
+6. **Install the Consumption Tagging app.** Install was tried and is blocked. It needs:
+   - the Data Cloud Architect permission set and the "Access to manage the template framework templates" permission for the installing admin (access change, separate approval)
+   - a data space selection
+   
+   Also confirm with the account team whether this org records Agentforce consumption at all.
+7. Re-run the demo prompts and add credits (once visible) and tokens per call (Audit and Feedback is now on) to section 6.1.
 
 Before switching these on, check with the account team whether tracing and audit storage in Data 360, or Agent Optimization, use any Data 360 or Flex Credits.
 

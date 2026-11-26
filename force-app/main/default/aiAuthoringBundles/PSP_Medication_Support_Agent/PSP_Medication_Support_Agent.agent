@@ -107,12 +107,14 @@ subagent program_exceptions:
                     is_displayable: True
             target: "apex://PSP_ExceptionsWorklistCardAction"
 
+    before_reasoning:
+        run @actions.get_program_exceptions
+            with enrollmentNumber=""
+            with exceptionTypes=""
+            set @variables.exceptions_summary = @outputs.resultMessage
+
     reasoning:
         instructions: ->
-            run @actions.get_program_exceptions
-                with enrollmentNumber=""
-                with exceptionTypes=""
-                set @variables.exceptions_summary = @outputs.resultMessage
             | Today's summary (counts only): {!@variables.exceptions_summary}
               The individual items are NOT in this prompt. To show them you MUST call show_worklist_card exactly once in this reply: with empty filters, or with the filters the user asked for (delayed shipments = SHIPMENT_DELAYED, overdue refills = REFILL_OVERDUE, refills due soon = REFILL_DUE_SOON, consent = CONSENT_PENDING, safety reviews = SAFETY_REVIEW_OPEN, duplicates = DUPLICATE_OPEN_CASES, cases without a category = UNCATEGORISED_OPEN_CASE, missing data = DATA_INCOMPLETE; an enrollment number only if the user gives one). It returns itemsText and displays the worklist card.
               Then show the resultMessage and every item from that itemsText, grouped by severity (HIGH, MEDIUM, LOW, INFO), keeping the facts as written. Never name a patient, case or shipment that is not in that itemsText. If it says no exceptions were found, say so.
