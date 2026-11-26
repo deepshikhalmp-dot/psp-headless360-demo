@@ -234,10 +234,44 @@ Before switching these on, check with the account team whether tracing and audit
 
 ---
 
-## 9. Sources
+## 9. Building and testing in a sandbox
+
+Most projects build and test agents in a sandbox before production. Two kinds of data behave differently.
+
+### 9.1 Credits (billing): expected to appear in production
+
+- A Salesforce developer guide (written for Agentforce Vibes) states that sandbox usage is charged against the linked production org's Flex Credit entitlement, that there is no separate sandbox pool, and that Digital Wallet flags whether consumption came from a sandbox or from production.
+- Third-party guides report that sandbox actions are billed at about 80% of the production rate, for example 16 instead of 20 credits per action. This is not an official figure; check the current rate card.
+- The Digital Wallet consumption object has an environment field (`UsageBusinessEnvType__c` on `TenantConsumptionInsights_std__dlm`), so usage can be grouped by sandbox and production.
+
+**What this means:** testing in a sandbox is not free. Load tests and automated test suites (Testing Center) can use production credits. Set a consumption alert in the production Digital Wallet before large test runs.
+
+### 9.2 Traces and tokens: stay in the sandbox
+
+Session Tracing and Einstein Audit and Feedback data are stored in the Data 360 of the org where the agent ran:
+
+- Sandbox sessions, steps and token counts do **not** appear in production.
+- To analyse them, turn on Session Tracing and Audit and Feedback **in the sandbox** and run the same queries against the sandbox.
+- The sandbox needs Data Cloud (Data 360) provisioned, which is not automatic for every sandbox.
+- Local traces from `sf agent preview` (in `.sfdx/agents/<agent>/sessions/`) work against any org and are the cheapest way to check action and LLM step counts while building.
+
+This behaviour was not tested in a sandbox during this POC. It follows from where these features store their data.
+
+### 9.3 Recommended approach
+
+1. In the sandbox, switch on Session Tracing and Audit and Feedback, and measure LLM calls, actions and tokens per request for the main use cases.
+2. In production, watch Digital Wallet for sandbox-flagged consumption and set alerts.
+3. Before go-live, estimate production cost: credits per request (measured) × expected requests per day.
+4. Confirm with the account team whether the contract charges sandbox usage to the production entitlement, and at what rate. Contracts can differ.
+
+---
+
+## 10. Sources
 
 - Agentforce pricing and credit examples: https://www.salesforce.com/agentforce/pricing/
 - Digital Wallet: https://www.salesforce.com/agentforce/digital-wallet/
 - Agentforce Observability: https://www.salesforce.com/agentforce/observability/ and https://www.salesforce.com/blog/agentforce-observability/
 - Session Trace export (OTel API, beta): https://developer.salesforce.com/docs/ai/agentforce/guide/otel-api.html
+- Sandbox usage and Flex Credits (Agentforce Vibes): https://developer.salesforce.com/docs/platform/agentforcevibes/guide/afv-flex-credits-estimator.html
+- Third-party notes on the sandbox rate: https://www.jitendrazaa.com/blog/salesforce/salesforce-agentforce-credits-cost-model-complete-guide-2026/ and https://vantagepoint.io/blog/sf/salesforce-flex-credits-guide
 - POC design details: [TDD.md](TDD.md) (sections 7, 8, 13, 14, 21)
