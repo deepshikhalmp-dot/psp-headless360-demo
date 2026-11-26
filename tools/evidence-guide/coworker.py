@@ -12,6 +12,7 @@ RUNS = {
     "C6": [("C6-resolution-plan", "Using the PSP Care Resolution Agent, prepare a resolution plan for today's PSP program exceptions.")],
     "C7": [("C7-exceptions-enr0063", "Show today's Zenthera PSP program exceptions for enrollment ENR-0063.")],
     "C5": [("C5-program-question", "What is the Zenthera PSP process for delayed shipments?")],
+    "M1": [("M1-refill-enr0007", "When is the next refill due for enrollment ENR-0007?")],
     "W4": [("W4-01-proposal", "Using the PSP Care Resolution Agent, prepare a Shipment Delay case for ENR-0059, shipment DSP-0073, with the subject \"Follow up delayed shipment DSP-0073 with the pharmacy\". Show me the proposal first."),
            ("W4-02-after-yes", "yes")],
 }

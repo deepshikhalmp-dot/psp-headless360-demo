@@ -9,12 +9,12 @@ import time
 from playwright.sync_api import sync_playwright
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SCREENS = os.path.abspath(os.path.join(HERE, "..", "..", "docs", "evidence-guide", "screens"))
+SCREENS = os.environ.get("SHOTS_DIR") or os.path.abspath(os.path.join(HERE, "..", "..", "docs", "evidence-guide", "screens"))
 
 
 class Session:
     def __init__(self, profile="presenter", height=1000):
-        self.profile_dir = os.path.join(HERE, ".profile-" + profile)
+        self.profile_dir = os.environ.get("PROFILE_DIR") or os.path.join(HERE, ".profile-" + profile)
         self.height = height
         self.base = None
 
