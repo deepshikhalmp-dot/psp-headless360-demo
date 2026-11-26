@@ -194,7 +194,7 @@ How to read it:
 | Agent Optimizer in Observability (beta) | Off | Not requested |
 | Agent Platform Tracing | **Off** | No Flow/Apex action traces |
 | Einstein Audit and Feedback | **On since 26 Nov 2026** (approved) | Prompt/response audit data, including token counts, from now on |
-| Consumption Tagging app | **Not installed: blocked** | Install needs the Data Cloud Architect permission set and the "Access to manage the template framework templates" permission on the installing admin, and a data space. Granting them is an access change that needs separate approval |
+| Consumption Tagging app | **Installed 26 Nov 2026** (approved), data space `default` | Consumption Insights data model and semantic models for credits by agent and action. Data sharing with Salesforce left Disabled. Data appears only once Digital Wallet records consumption for this org |
 | Knowledge/RAG Quality Data and Metrics | **Off** | No retriever quality metrics for the FAQ |
 | Agent Analytics app "Coworker Insights" | **Ready to install** | Coworker usage insights not available |
 | Conversational Memory for Agentforce | **On** (org setting) | Check which agents use it; memory adds context |
@@ -213,20 +213,21 @@ Done on 26 Nov 2026 (approved):
 
 Measured: one demo run on 26 Nov 2026 (section 6.1).
 
-Also done on 26 Nov 2026 (approved): Einstein Audit and Feedback switched on; Medication Support Agent v7 published and activated (repeated exceptions read fixed).
+Also done on 26 Nov 2026 (approved):
 
-Still open. Items 3–6 need approval:
+- Einstein Audit and Feedback switched on.
+- Medication Support Agent v7 published and activated (repeated exceptions read fixed).
+- Data Cloud Architect permission set assigned to the admin user.
+- Consumption Tagging app installed (data space `default`). Evidence: `docs/evidence/monitoring-consumption-tagging-installed.png`.
+
+Still open. Items 3–5 need approval:
 
 3. **Optional:**
    - Agent Platform Tracing (action traces)
    - Knowledge/RAG Quality metrics (FAQ retriever)
 4. **Optional:** install the **Coworker Insights** app (Setup → Agent Analytics).
 5. **Set consumption alerts** in Digital Wallet at agreed thresholds.
-6. **Install the Consumption Tagging app.** Install was tried and is blocked. It needs:
-   - the Data Cloud Architect permission set and the "Access to manage the template framework templates" permission for the installing admin (access change, separate approval)
-   - a data space selection
-   
-   Also confirm with the account team whether this org records Agentforce consumption at all.
+6. **Confirm with the account team** whether this demo org records Agentforce consumption. Digital Wallet and Consumption Tagging are installed, but Consumption Cards showed no data on 26 Nov 2026.
 7. Re-run the demo prompts and add credits (once visible) and tokens per call (Audit and Feedback is now on) to section 6.1.
 
 Before switching these on, check with the account team whether tracing and audit storage in Data 360, or Agent Optimization, use any Data 360 or Flex Credits.
