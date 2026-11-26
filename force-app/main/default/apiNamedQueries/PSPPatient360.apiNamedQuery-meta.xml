@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApiNamedQuery xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiNamedQueryParameters>
+        <description>Full name of the patient exactly as recorded, for example Riya Demo Sharma. Ask the user for the full name; do not guess.</description>
+        <parameterLabel>Patient Name</parameterLabel>
+        <parameterName>patientname</parameterName>
+    </apiNamedQueryParameters>
+    <apiVersion>68.0</apiVersion>
+    <body2>SELECT Id, Name, PersonMobilePhone, RecordType.DeveloperName, (SELECT Id, Name, Program__c, Therapy__c, Status__c, Enrollment_Date__c, Insurance_Type__c, Prescriber_Name__c, (SELECT Name, Dispense_Date__c, Days_Supply__c, Pharmacy__c, Status__c FROM Dispenses__r ORDER BY Dispense_Date__c DESC LIMIT 20) FROM Program_Enrollments__r ORDER BY Enrollment_Date__c DESC LIMIT 5), (SELECT CaseNumber, Subject, Status, IsClosed, Origin, CreatedDate FROM Cases ORDER BY IsClosed, CreatedDate DESC LIMIT 20) FROM Account WHERE IsPersonAccount = true AND Name = :patientname ORDER BY CreatedDate LIMIT 5</body2>
+    <description>Zenthera PSP demo: read-only patient profile by full name: mobile, enrollments with dispenses, and cases (IsClosed shows open/closed). Up to 5 rows: more than one = ambiguous name, none = not found.</description>
+    <masterLabel>PSP Patient 360</masterLabel>
+</ApiNamedQuery>

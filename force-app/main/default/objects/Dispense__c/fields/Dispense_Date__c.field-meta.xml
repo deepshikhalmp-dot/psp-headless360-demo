@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dispense_Date__c</fullName>
+    <description>The date the pharmacy dispensed the therapy. With Days Supply it gives the next refill due date.</description>
+    <inlineHelpText>The date the pharmacy dispensed this shipment.</inlineHelpText>
+    <label>Dispense Date</label>
+    <required>false</required>
+    <type>Date</type>
+</CustomField>

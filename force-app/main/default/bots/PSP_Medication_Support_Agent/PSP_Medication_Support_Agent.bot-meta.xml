@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentDSLEnabled>true</agentDSLEnabled>
+    <agentType>AgentforceEmployeeAgent</agentType>
+    <botMlDomain>
+        <label>PSP Medication Support Agent</label>
+        <name>PSP_Medication_Support_Agent</name>
+    </botMlDomain>
+    <botSource>None</botSource>
+    <description>Zenthera Patient Support Program (PSP) specialist for patient medication facts from CRM data, read-only: refill history and next refill due date for one patient (recorded shipments only), delayed or long-shipped shipments, and the program exceptions list (overdue refills, delayed shipments, consent pending, open safety reviews, duplicate or uncategorised cases, missing data). Use for &apos;show today&apos;s PSP program exceptions&apos;, &apos;which shipments are delayed&apos;, &apos;when is &lt;patient&gt;&apos;s next refill due&apos;. Not for program policy questions or creating cases.</description>
+    <label>PSP Medication Support Agent</label>
+    <logPrivateConversationData>false</logPrivateConversationData>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>0</sessionTimeout>
+    <type>InternalCopilot</type>
+</Bot>

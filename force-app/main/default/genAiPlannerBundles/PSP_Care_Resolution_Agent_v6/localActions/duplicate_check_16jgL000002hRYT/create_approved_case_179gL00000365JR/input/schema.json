@@ -1,0 +1,49 @@
+{
+  "required" : [ ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "category" : {
+      "title" : "Category",
+      "description" : "Exactly one of: Shipment Delay, Refill Support, Insurance Support, General Program Support, Possible Adverse Event.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "description" : {
+      "title" : "Description",
+      "description" : "Facts as shown in the approved proposal. No medical advice.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "dispenseNumber" : {
+      "title" : "Dispense Number",
+      "description" : "Optional shipment number such as DSP-0016. Leave empty if not about a shipment.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "enrollmentNumber" : {
+      "title" : "Enrollment Number",
+      "description" : "Enrollment number such as ENR-0007.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "subject" : {
+      "title" : "Subject",
+      "description" : "Short plain subject without a category tag, as shown in the approved proposal.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "userConfirmed" : {
+      "title" : "User Confirmed",
+      "description" : "True only if the user's latest message explicitly approves creating this exact case. Otherwise false.",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

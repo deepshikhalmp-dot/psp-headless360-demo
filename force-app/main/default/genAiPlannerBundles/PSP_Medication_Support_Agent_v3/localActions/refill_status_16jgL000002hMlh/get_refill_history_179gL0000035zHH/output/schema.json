@@ -1,0 +1,30 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "refillStatus" : {
+      "title" : "Refill Status",
+      "description" : "ON_TRACK, DUE, LATE or NO_DELIVERED_REFILL.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "resultCode" : {
+      "title" : "Result Code",
+      "description" : "SUCCESS, NOT_FOUND, AMBIGUOUS_MATCH, NO_ENROLLMENT, INVALID_INPUT or ERROR.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "resultMessage" : {
+      "title" : "Result Message",
+      "description" : "Plain-language result to show the user.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

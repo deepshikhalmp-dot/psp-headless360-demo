@@ -1,0 +1,21 @@
+{
+  "required" : [ ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "enrollmentNumber" : {
+      "title" : "Enrollment Number",
+      "description" : "Optional. Only this enrollment, for example ENR-0007. Leave empty for all patients.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "exceptionTypes" : {
+      "title" : "Exception Types",
+      "description" : "Optional. Comma separated exception types, for example SHIPMENT_DELAYED,REFILL_OVERDUE. Leave empty for all types.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

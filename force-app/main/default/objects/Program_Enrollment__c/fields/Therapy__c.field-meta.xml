@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Therapy__c</fullName>
+    <description>The prescribed therapy and strength the program supports for this patient.</description>
+    <inlineHelpText>Select the therapy and strength on the prescription.</inlineHelpText>
+    <label>Therapy</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Zenthera 50 mg</fullName>
+                <default>false</default>
+                <label>Zenthera 50 mg</label>
+            </value>
+            <value>
+                <fullName>Zenthera 100 mg</fullName>
+                <default>false</default>
+                <label>Zenthera 100 mg</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

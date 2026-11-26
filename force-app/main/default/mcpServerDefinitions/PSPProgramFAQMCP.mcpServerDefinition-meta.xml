@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Zenthera Patient Support Program (demo, fictional data): answers program questions from the PSP Program FAQ (Data 360 data library).</description>
+    <masterLabel>PSP Program FAQ MCP</masterLabel>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>fa:flow-PSP_Answer_Program_Question</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>PSP_Answer_Program_Question</operation>
+        </apiDefinition>
+        <descriptionOverride>Read-only. Answers a question about the Zenthera Patient Support Program (demo, fictional) using only the Program FAQ document: eligibility, enrollment, copay and insurance support, uninsured help, prior authorization, shipments and refills, contact hours, privacy and leaving the program. Input: question (the user&apos;s words). Returns resultCode (SUCCESS, VALIDATION_ERROR, ERROR), answer (show to the user as written, including its Source line) and resultMessage. If the FAQ has no answer it says so; never add facts that are not in the answer. Gives no medical advice: dosing and side effect questions go to the prescriber. Not for patient records: use the patient profile or refill tools for those.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>PSP_Answer_Program_Questionflow_PSP_Answer_Program_Question</toolName>
+        <toolTitle>PSP_Answer_Program_Question</toolTitle>
+    </tools>
+</McpServerDefinition>

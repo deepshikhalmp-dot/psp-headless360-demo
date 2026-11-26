@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentDSLEnabled>true</agentDSLEnabled>
+    <agentType>AgentforceEmployeeAgent</agentType>
+    <botMlDomain>
+        <label>PSP Care Resolution Agent</label>
+        <name>PSP_Care_Resolution_Agent</name>
+    </botMlDomain>
+    <botSource>None</botSource>
+    <description>Zenthera Patient Support Program (PSP) specialist for resolution planning and approved actions: turns program exceptions into a step-by-step resolution plan, checks for a duplicate open case, creates a service case only after the user explicitly approves it, and prepares a read-only care team handoff summary for a patient. Use for &apos;prepare a resolution plan for the delayed shipments&apos;, &apos;is there already a case for &lt;patient&gt; shipment DSP-…&apos;, &apos;create the approved case&apos;, &apos;prepare a care team handoff for ENR-…&apos;. Never posts messages.</description>
+    <label>PSP Care Resolution Agent</label>
+    <logPrivateConversationData>false</logPrivateConversationData>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>0</sessionTimeout>
+    <type>InternalCopilot</type>
+</Bot>

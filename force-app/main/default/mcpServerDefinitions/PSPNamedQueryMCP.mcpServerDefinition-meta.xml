@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Patient 360 info</description>
+    <masterLabel>PSP Named Query MCP</masterLabel>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>nq:PSPPatient360_nquery</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>PSPPatient360</operation>
+        </apiDefinition>
+        <descriptionOverride>Zenthera PSP demo: read-only patient profile by full name: mobile, enrollments with dispenses, and cases (IsClosed shows open/closed). Up to 5 rows: more than one = ambiguous name, none = not found.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>PSPPatient360PSPPatient360_nquery</toolName>
+        <toolTitle>PSPPatient360</toolTitle>
+    </tools>
+</McpServerDefinition>

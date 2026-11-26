@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The Program Enrollment object records a patient’s enrollment in the Zenthera Patient Support Program, as a child of the patient’s Person Account. It captures Program, Therapy, Status, Enrollment Date, Prescriber Name, Consent Given, Consent Date and Insurance Type. Commonly used for patient onboarding, adherence follow-up and copay support.</description>
+    <enableActivities>true</enableActivities>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Program Enrollment</label>
+    <nameField>
+        <displayFormat>ENR-{0000}</displayFormat>
+        <label>Enrollment ID</label>
+        <startingNumber>1</startingNumber>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Program Enrollments</pluralLabel>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

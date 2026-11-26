@@ -1,0 +1,28 @@
+{
+  "required" : [ ],
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "category" : {
+      "title" : "Category",
+      "description" : "Exactly one of: Shipment Delay, Refill Support, Insurance Support, General Program Support, Possible Adverse Event.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "dispenseNumber" : {
+      "title" : "Dispense Number",
+      "description" : "Optional shipment number such as DSP-0016; must belong to the patient. Leave empty if not about a shipment.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    },
+    "enrollmentNumber" : {
+      "title" : "Enrollment Number",
+      "description" : "Enrollment number such as ENR-0007.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isUserInput" : false
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

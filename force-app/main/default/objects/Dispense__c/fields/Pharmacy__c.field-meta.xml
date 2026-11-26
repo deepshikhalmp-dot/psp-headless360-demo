@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pharmacy__c</fullName>
+    <description>The specialty pharmacy that dispensed the shipment, for follow-up on delays.</description>
+    <inlineHelpText>Enter the dispensing specialty pharmacy’s name.</inlineHelpText>
+    <label>Pharmacy</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

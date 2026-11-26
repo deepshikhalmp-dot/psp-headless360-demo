@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Insurance_Type__c</fullName>
+    <description>The patient’s insurance coverage, which decides copay assistance eligibility.</description>
+    <inlineHelpText>Select the patient’s primary coverage. Copay assistance rules depend on it.</inlineHelpText>
+    <label>Insurance Type</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Commercial</fullName>
+                <default>false</default>
+                <label>Commercial</label>
+            </value>
+            <value>
+                <fullName>Medicare</fullName>
+                <default>false</default>
+                <label>Medicare</label>
+            </value>
+            <value>
+                <fullName>Medicaid</fullName>
+                <default>false</default>
+                <label>Medicaid</label>
+            </value>
+            <value>
+                <fullName>Uninsured</fullName>
+                <default>false</default>
+                <label>Uninsured</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

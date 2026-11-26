@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Program_Enrollment__c</fullName>
+    <description>The enrollment this shipment belongs to. Dispenses are owned by and shared through their enrollment.</description>
+    <inlineHelpText>The patient’s program enrollment that this shipment was sent for.</inlineHelpText>
+    <label>Program Enrollment</label>
+    <referenceTo>Program_Enrollment__c</referenceTo>
+    <relationshipLabel>Dispenses</relationshipLabel>
+    <relationshipName>Dispenses</relationshipName>
+    <relationshipOrder>0</relationshipOrder>
+    <reparentableMasterDetail>false</reparentableMasterDetail>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>

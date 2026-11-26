@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bot xmlns="http://soap.sforce.com/2006/04/metadata">
+    <agentDSLEnabled>true</agentDSLEnabled>
+    <agentType>AgentforceEmployeeAgent</agentType>
+    <botMlDomain>
+        <label>PSP Program Knowledge Agent</label>
+        <name>PSP_Program_Knowledge_Agent</name>
+    </botMlDomain>
+    <botSource>None</botSource>
+    <description>Zenthera Patient Support Program (PSP) specialist for program policy questions, answered only from the Zenthera Program FAQ (Data 360): eligibility, enrollment, copay assistance, Medicare/Medicaid and uninsured help, prior authorization, the delayed-shipment process, refills, contact hours, privacy and leaving the program. Every answer cites &apos;Source: Zenthera Program FAQ, Q…&apos;. Does not read patient records, create cases or give medical advice.</description>
+    <label>PSP Program Knowledge Agent</label>
+    <logPrivateConversationData>false</logPrivateConversationData>
+    <richContentEnabled>true</richContentEnabled>
+    <sessionTimeout>0</sessionTimeout>
+    <type>InternalCopilot</type>
+</Bot>

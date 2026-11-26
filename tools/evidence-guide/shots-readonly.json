@@ -1,0 +1,23 @@
+[
+  {"id": "R01-psp-patients-list", "url": "/lightning/o/Account/list?filterName=00BgL00000rPg2LUAS", "wait": 8},
+  {"id": "R02-patient-riya", "url": "/lightning/r/Account/001gL000029dxV3QAI/view", "wait": 10},
+  {"id": "R03-enrollment-enr0007", "url": "/lightning/r/Program_Enrollment__c/a4tgL000000hrCLQAY/view", "wait": 10},
+  {"id": "R04-dispense-dsp0016", "url": "/lightning/r/Dispense__c/a4sgL000000LudVQAS/view", "wait": 8},
+  {"id": "R05-dispense-dsp0015", "url": "/lightning/r/Dispense__c/a4sgL000000LubtQAC/view", "wait": 8},
+  {"id": "R06-case-00001124", "url": "/lightning/r/Case/500gL00001hltPZQAY/view", "wait": 10},
+  {"id": "R07-case-00001071-safety", "url": "/lightning/r/Case/500gL00001hGpV9QAK/view", "wait": 10},
+  {"id": "R08-enrollment-enr0059", "url": "/lightning/r/Program_Enrollment__c/a4tgL000000ibblQAA/view", "wait": 10},
+  {"id": "R09-dispense-dsp0073", "url": "/lightning/r/Dispense__c/a4sgL000000MRj7QAG/view", "wait": 8},
+  {"id": "T01-setup-flows", "url": "/lightning/setup/Flows/home", "wait": 10},
+  {"id": "T02-flow-handoff", "url": "/builder_platform_interaction/flowBuilder.app?flowDefId=300gL00001imtGTQAY", "wait": 15},
+  {"id": "T03-flow-enroll", "url": "/builder_platform_interaction/flowBuilder.app?flowDefId=300gL00001h6UQMQA2", "wait": 15},
+  {"id": "T04-setup-apex-classes", "url": "/lightning/setup/ApexClasses/home", "wait": 10},
+  {"id": "T05-setup-permsets", "url": "/lightning/setup/PermSets/home", "wait": 10},
+  {"id": "T06-setup-prompt-builder", "url": "/lightning/setup/EinsteinPromptStudio/home", "wait": 12},
+  {"id": "T07-setup-agents", "url": "/lightning/setup/EinsteinCopilot/home", "wait": 12},
+  {"id": "T08-setup-mcp-a", "url": "/lightning/setup/McpServers/home", "wait": 10},
+  {"id": "T09-setup-mcp-b", "url": "/lightning/setup/MCPServers/home", "wait": 10},
+  {"id": "T10-setup-data-library", "url": "/lightning/setup/EinsteinDataLibrary/home", "wait": 12},
+  {"id": "T11-setup-api-catalog", "url": "/lightning/setup/ApiCatalog/home", "wait": 12},
+  {"id": "T12-setup-lightning-types", "url": "/lightning/setup/LightningTypes/home", "wait": 10}
+]

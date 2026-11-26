@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UiWidgetBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>PSP Exceptions Worklist Card</masterLabel>
+    <description>Zenthera PSP (fictional demo data): program exceptions worklist, counts by severity and items grouped HIGH, MEDIUM, LOW and data gaps. Read-only.</description>
+    <widgetType>JSON</widgetType>
+</UiWidgetBundle>

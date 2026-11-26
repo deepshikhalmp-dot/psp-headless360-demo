@@ -1,0 +1,10 @@
+[
+  {"id": "T04-apex-exceptions-service", "url": "/lightning/setup/ApexClasses/page?address=%2F01pgL00000MraS5QAJ", "wait": 12},
+  {"id": "T04b-apex-duplicate-check", "url": "/lightning/setup/ApexClasses/page?address=%2F01pgL00000MrZKjQAN", "wait": 12},
+  {"id": "T04c-apex-create-approved-case", "url": "/lightning/setup/ApexClasses/page?address=%2F01pgL00000MsEyJQAV", "wait": 12},
+  {"id": "T04d-apex-care-team-handoff", "url": "/lightning/setup/ApexClasses/page?address=%2F01pgL00000MsEyHQAV", "wait": 12},
+  {"id": "T05-permset-psp-patient-services", "url": "/lightning/setup/PermSets/page?address=%2F0PSgL00000PODXBWA5", "wait": 12},
+  {"id": "T05b-permset-agent-access", "url": "/lightning/setup/PermSets/page?address=%2F0PSgL00000PbXMnWAN", "wait": 12},
+  {"id": "T03b-flow-create-service-case", "url": "/builder_platform_interaction/flowBuilder.app?flowDefId=300gL00001hIVfCQAW", "wait": 15},
+  {"id": "T03c-flow-answer-program-question", "url": "/builder_platform_interaction/flowBuilder.app?flowDefId=300gL00001hRP5tQAG", "wait": 15}
+]

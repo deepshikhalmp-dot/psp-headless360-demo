@@ -1,0 +1,5 @@
+{
+  "title": "PSP Exceptions Worklist",
+  "description": "Zenthera PSP program exceptions worklist card (PSP_ExceptionsWorklistCard).",
+  "lightning:type": "@apexClassType/c__PSP_ExceptionsWorklistCard"
+}

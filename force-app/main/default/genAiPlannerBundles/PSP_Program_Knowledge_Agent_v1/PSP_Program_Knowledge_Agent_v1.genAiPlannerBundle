@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Zenthera Patient Support Program (PSP) specialist for program policy questions, answered only from the Zenthera Program FAQ (Data 360): eligibility, enrollment, copay assistance, Medicare/Medicaid and uninsured help, prior authorization, the delayed-shipment process, refills, contact hours, privacy and leaving the program. Every answer cites &apos;Source: Zenthera Program FAQ, Q…&apos;. Does not read patient records, create cases or give medical advice.</description>
+    <localTopicLinks>
+        <genAiPluginName>agent_router_16jgL000002hMP7</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>off_topic_16jgL000002hMP7</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>program_faq_16jgL000002hMP7</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>agent_router_16jgL000002hMP7</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Route Zenthera PSP program policy questions to the program FAQ subagent.</description>
+        <developerName>agent_router_16jgL000002hMP7</developerName>
+        <genAiPluginInstructions>
+            <description>You are the PSP Program Knowledge Agent for the Zenthera Patient Support Program, a fictional demo program. You answer questions about the program only from the Zenthera Program FAQ, through your action. You never use outside knowledge and never guess amounts, dates, phone numbers, income limits or eligibility rules. You do not read patient records and never change records. Never give medical advice (dosing, missed doses, side effects, treatment choices): say the question must go to the prescriber, and in an emergency the patient should call 911. Never say that anything has been or will be reported to a regulator. Patient facts belong to the PSP Medication Support Agent; case creation and handoffs belong to the PSP Care Resolution Agent.</description>
+            <developerName>instruction0_179gL0000035yxv</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL0000035yxv</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>off_topic_16jgL000002hMP7</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect requests that are not Zenthera PSP program policy questions.</description>
+        <developerName>off_topic_16jgL000002hMP7</developerName>
+        <genAiPluginInstructions>
+            <description>You are the PSP Program Knowledge Agent for the Zenthera Patient Support Program, a fictional demo program. You answer questions about the program only from the Zenthera Program FAQ, through your action. You never use outside knowledge and never guess amounts, dates, phone numbers, income limits or eligibility rules. You do not read patient records and never change records. Never give medical advice (dosing, missed doses, side effects, treatment choices): say the question must go to the prescriber, and in an emergency the patient should call 911. Never say that anything has been or will be reported to a regulator. Patient facts belong to the PSP Medication Support Agent; case creation and handoffs belong to the PSP Care Resolution Agent.</description>
+            <developerName>instruction0_179gL0000035yxu</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL0000035yxu</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>off_topic</localDeveloperName>
+        <masterLabel>Off Topic</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>program_faq_16jgL000002hMP7</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Answers Zenthera PSP program questions only from the Zenthera Program FAQ.</description>
+        <developerName>program_faq_16jgL000002hMP7</developerName>
+        <genAiPluginInstructions>
+            <description>You are the PSP Program Knowledge Agent for the Zenthera Patient Support Program, a fictional demo program. You answer questions about the program only from the Zenthera Program FAQ, through your action. You never use outside knowledge and never guess amounts, dates, phone numbers, income limits or eligibility rules. You do not read patient records and never change records. Never give medical advice (dosing, missed doses, side effects, treatment choices): say the question must go to the prescriber, and in an emergency the patient should call 911. Never say that anything has been or will be reported to a regulator. Patient facts belong to the PSP Medication Support Agent; case creation and handoffs belong to the PSP Care Resolution Agent.</description>
+            <developerName>instruction0_179gL0000035yxt</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL0000035yxt</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>answer_program_question_179gL0000035yxt</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>answer_program_question_179gL0000035yxt</fullName>
+            <description>Read-only. Answers a question about the Zenthera Patient Support Program using only the Program FAQ document. Returns the answer with a Source line, or a fixed sentence when the FAQ has no answer.</description>
+            <developerName>answer_program_question_179gL0000035yxt</developerName>
+            <invocationTarget>PSP_Answer_Program_Question</invocationTarget>
+            <invocationTargetType>flow</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>answer_program_question</localDeveloperName>
+            <masterLabel>Answer Program Question</masterLabel>
+        </localActions>
+        <localDeveloperName>program_faq</localDeveloperName>
+        <masterLabel>Program FAQ</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <masterLabel>PSP Program Knowledge Agent</masterLabel>
+    <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+</GenAiPlannerBundle>

@@ -1,0 +1,1400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>68.0</apiVersion>
+    <assignments>
+        <description>Stores the number of existing patients with the same first name, last name and birthdate.</description>
+        <name>Count_Exact_Matches</name>
+        <label>Count Exact Matches</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varExactMatchCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Exact_Matches</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Exact_Match_Count</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Stores the number of exact matches that also have the same mobile number.</description>
+        <name>Count_Mobile_Matches</name>
+        <label>Count Mobile Matches</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varMobileMatchCount</assignToReference>
+            <operator>AssignCount</operator>
+            <value>
+                <elementReference>Get_Exact_Mobile_Matches</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Mobile_Match_Count</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>One existing patient matched: reuse it.</description>
+        <name>Use_Single_Match</name>
+        <label>Use Single Match</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varPatientId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Single_Match.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>patientStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>EXISTING_PATIENT</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Open_Enrollment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Several patients matched on name and birthdate, but exactly one also has the same mobile number: reuse it.</description>
+        <name>Use_Mobile_Match</name>
+        <label>Use Mobile Match</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varPatientId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Mobile_Match.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>patientStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>EXISTING_PATIENT</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Get_Open_Enrollment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>A new patient record was created in this run.</description>
+        <name>Use_New_Patient</name>
+        <label>Use New Patient</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>varPatientId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Create_Patient</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>varCreatedNewPatient</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>patientStatus</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>NEW_PATIENT</stringValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Create_Enrollment</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <description>Success: returns the patient, the enrollment and a confirmation message.</description>
+        <name>Set_Success</name>
+        <label>Set Success</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>isSuccess</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>SUCCESS</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxSuccessMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>patientId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varPatientId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>enrollmentId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Create_Enrollment</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>enrollmentNumber</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Created_Enrollment.Name</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>A required input is missing or invalid. Nothing is created.</description>
+        <name>Set_Validation_Error</name>
+        <label>Set Validation Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>resultCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>VALIDATION_ERROR</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxValidationMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Consent was not given. Nothing is created.</description>
+        <name>Set_No_Consent</name>
+        <label>Set No Consent</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>resultCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>NO_CONSENT</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>Not enrolled: the patient has not given consent. The Zenthera Patient Support Program requires patient consent before enrollment. Nothing was created.</stringValue>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>More than one existing patient could be this person. Nothing is created.</description>
+        <name>Set_Ambiguous_Multiple</name>
+        <label>Set Ambiguous Multiple</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>resultCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>AMBIGUOUS_MATCH</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxAmbiguousMultipleMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>One patient matched on name and birthdate but has a different mobile number on file. Nothing is created.</description>
+        <name>Set_Ambiguous_Mobile_Conflict</name>
+        <label>Set Ambiguous Mobile Conflict</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>resultCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>AMBIGUOUS_MATCH</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxAmbiguousMobileMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>A patient with the same name exists but has no birthdate on file, so it may be the same person. Nothing is created.</description>
+        <name>Set_Ambiguous_No_Birthdate</name>
+        <label>Set Ambiguous No Birthdate</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>resultCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>AMBIGUOUS_MATCH</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxAmbiguousNoBirthdateMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>The patient already has an open enrollment in the program. Nothing is created.</description>
+        <name>Set_Duplicate</name>
+        <label>Set Duplicate</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>resultCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>DUPLICATE_ENROLLMENT</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxDuplicateMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>patientId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varPatientId</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>enrollmentId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Open_Enrollment.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>enrollmentNumber</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Get_Open_Enrollment.Name</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Fault: the patient record could not be created. Nothing was saved.</description>
+        <name>Set_Patient_Create_Error</name>
+        <label>Set Patient Create Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>resultCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>ERROR</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxPatientCreateFaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Fault: the enrollment could not be created. A patient created in this run has already been removed.</description>
+        <name>Set_Enrollment_Create_Error</name>
+        <label>Set Enrollment Create Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>resultCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>ERROR</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxEnrollmentCreateFaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>patientId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxExistingPatientIdOnly</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <assignments>
+        <description>Fault: the enrollment failed and the patient created in this run could not be removed.</description>
+        <name>Set_Cleanup_Error</name>
+        <label>Set Cleanup Error</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>resultCode</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <stringValue>ERROR</stringValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>resultMessage</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>fxCleanupFaultMessage</elementReference>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>patientId</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>varPatientId</elementReference>
+            </value>
+        </assignmentItems>
+    </assignments>
+    <decisions>
+        <description>Stops before any lookup or DML when inputs are missing or invalid, or consent is not given.</description>
+        <name>Check_Inputs</name>
+        <label>Check Inputs</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Get_Exact_Matches</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Inputs OK</defaultConnectorLabel>
+        <rules>
+            <name>Inputs_Invalid</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fxHasInvalidInput</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Validation_Error</targetReference>
+            </connector>
+            <label>Inputs Invalid</label>
+        </rules>
+        <rules>
+            <name>Consent_Missing</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fxConsentGiven</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_No_Consent</targetReference>
+            </connector>
+            <label>Consent Missing</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>How many existing patients have the same first name, last name and full birthdate?</description>
+        <name>Exact_Match_Count</name>
+        <label>Exact Match Count</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Mobile_Provided</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>More Than One</defaultConnectorLabel>
+        <rules>
+            <name>No_Exact_Match</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varExactMatchCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>0.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Name_Match_Without_Birthdate</targetReference>
+            </connector>
+            <label>None</label>
+        </rules>
+        <rules>
+            <name>One_Exact_Match</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varExactMatchCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Single_Match</targetReference>
+            </connector>
+            <label>Exactly One</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>The single matched patient has a different mobile number on file than the one given.</description>
+        <name>Mobile_Conflict</name>
+        <label>Mobile Conflict</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Use_Single_Match</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Conflict</defaultConnectorLabel>
+        <rules>
+            <name>Mobile_Differs</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>fxMobileConflict</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Ambiguous_Mobile_Conflict</targetReference>
+            </connector>
+            <label>Mobile Differs</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Several patients match on name and birthdate. Without a mobile number they cannot be told apart.</description>
+        <name>Mobile_Provided</name>
+        <label>Mobile Provided</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Set_Ambiguous_Multiple</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Mobile</defaultConnectorLabel>
+        <rules>
+            <name>Has_Mobile</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>mobilePhone</leftValueReference>
+                <operator>IsBlank</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Exact_Mobile_Matches</targetReference>
+            </connector>
+            <label>Has Mobile</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Exactly one of the name-and-birthdate matches has the given mobile number?</description>
+        <name>Mobile_Match_Count</name>
+        <label>Mobile Match Count</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Set_Ambiguous_Multiple</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Still Ambiguous</defaultConnectorLabel>
+        <rules>
+            <name>One_Mobile_Match</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varMobileMatchCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Get_Mobile_Match</targetReference>
+            </connector>
+            <label>Exactly One</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Is there a patient with the same name whose birthdate is not recorded? If so, it may be the same person.</description>
+        <name>Name_Match_Without_Birthdate_Found</name>
+        <label>Name Match Without Birthdate Found</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Get_Person_Account_Record_Type</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>New Patient</defaultConnectorLabel>
+        <rules>
+            <name>Possible_Same_Person</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Name_Match_Without_Birthdate</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Ambiguous_No_Birthdate</targetReference>
+            </connector>
+            <label>Possible Same Person</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>Does the existing patient already have an open (not Discontinued) enrollment in the program?</description>
+        <name>Open_Enrollment_Found</name>
+        <label>Open Enrollment Found</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Create_Enrollment</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>No Open Enrollment</defaultConnectorLabel>
+        <rules>
+            <name>Already_Enrolled</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_Open_Enrollment</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Set_Duplicate</targetReference>
+            </connector>
+            <label>Already Enrolled</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <description>On enrollment failure, remove the patient only if this run created it.</description>
+        <name>Patient_Created_In_This_Run</name>
+        <label>Patient Created In This Run</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>Set_Enrollment_Create_Error</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>Existing Patient</defaultConnectorLabel>
+        <rules>
+            <name>New_Patient_To_Remove</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>varCreatedNewPatient</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Delete_New_Patient</targetReference>
+            </connector>
+            <label>New Patient To Remove</label>
+        </rules>
+    </decisions>
+    <description>Enrolls a patient in the Zenthera Patient Support Program (demo, fictional data). Reused by the Patient Support Program app, the Patient Services Agent and the PSP MCP server. Steps: validate inputs; refuse without consent; find the patient (Person Account) by first name, last name and full birthdate, using mobile to tell matches apart; refuse ambiguous matches without creating anything; refuse a duplicate open enrollment; otherwise create the patient if new and the Program Enrollment (Status Enrolled, Enrollment Date and Consent Date today). If the enrollment cannot be created, a patient created in the same run is removed. Outputs: isSuccess, resultCode (SUCCESS, VALIDATION_ERROR, NO_CONSENT, AMBIGUOUS_MATCH, DUPLICATE_ENROLLMENT, ERROR), resultMessage, patientId, enrollmentId, enrollmentNumber (ENR-...), patientStatus.</description>
+    <environments>Default</environments>
+    <formulas>
+        <description>Message when several existing patients could be this person.</description>
+        <name>fxAmbiguousMultipleMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;Not enrolled: more than one existing patient named &quot; &amp; {!firstName} &amp; &quot; &quot; &amp; {!lastName} &amp; &quot; with birthdate &quot; &amp; TEXT({!birthdate}) &amp; &quot; was found&quot; &amp; IF(ISBLANK({!mobilePhone}), &quot; and no mobile number was given to tell them apart&quot;, &quot; and the mobile number does not identify exactly one of them&quot;) &amp; &quot;. A coordinator must review the patient records. Nothing was created.&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>Message when the single name-and-birthdate match has a different mobile number on file.</description>
+        <name>fxAmbiguousMobileMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;Not enrolled: an existing patient named &quot; &amp; {!firstName} &amp; &quot; &quot; &amp; {!lastName} &amp; &quot; with the same birthdate has a different mobile number on file. It is unclear whether this is the same person. A coordinator must review the patient record. Nothing was created.&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>Message when a patient with the same name has no birthdate recorded.</description>
+        <name>fxAmbiguousNoBirthdateMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;Not enrolled: an existing patient named &quot; &amp; {!firstName} &amp; &quot; &quot; &amp; {!lastName} &amp; &quot; has no birthdate on file, so it may be the same person. Add the birthdate to that patient record or confirm it is a different person, then try again. Nothing was created.&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>Message when the enrollment failed and the new patient could not be removed.</description>
+        <name>fxCleanupFaultMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;Not enrolled: the enrollment could not be created, and the patient record created in this attempt (Id &quot; &amp; {!varPatientId} &amp; &quot;) could not be removed. Ask an administrator to check it. Details: &quot; &amp; {!$Flow.FaultMessage}</expression>
+    </formulas>
+    <formulas>
+        <description>TRUE only when consent is explicitly given. A blank value counts as not given.</description>
+        <name>fxConsentGiven</name>
+        <dataType>Boolean</dataType>
+        <expression>IF({!consentGiven}, TRUE, FALSE)</expression>
+    </formulas>
+    <formulas>
+        <description>Message when an existing patient already has an open enrollment.</description>
+        <name>fxDuplicateMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;Not enrolled: &quot; &amp; {!firstName} &amp; &quot; &quot; &amp; {!lastName} &amp; &quot; already has an open enrollment in the Zenthera Patient Support Program (&quot; &amp; {!Get_Open_Enrollment.Name} &amp; &quot;). A second enrollment was not created.&quot;</expression>
+    </formulas>
+    <formulas>
+        <description>Message when the enrollment record cannot be created.</description>
+        <name>fxEnrollmentCreateFaultMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;Not enrolled: the enrollment could not be created&quot; &amp; IF({!varCreatedNewPatient}, &quot;, and the patient record created in this attempt was removed again&quot;, &quot;&quot;) &amp; &quot;. Details: &quot; &amp; {!$Flow.FaultMessage}</expression>
+    </formulas>
+    <formulas>
+        <description>The patient Id to return after an enrollment failure: only for an existing patient, because a new one was removed.</description>
+        <name>fxExistingPatientIdOnly</name>
+        <dataType>String</dataType>
+        <expression>IF({!varCreatedNewPatient}, &quot;&quot;, {!varPatientId})</expression>
+    </formulas>
+    <formulas>
+        <description>TRUE when a required input is missing, a value is not allowed, a text is too long, or the birthdate is in the future.</description>
+        <name>fxHasInvalidInput</name>
+        <dataType>Boolean</dataType>
+        <expression>OR(
+    ISBLANK({!firstName}),
+    ISBLANK({!lastName}),
+    ISBLANK({!birthdate}),
+    ISBLANK({!therapy}),
+    ISBLANK({!insuranceType}),
+    AND(NOT(ISBLANK({!therapy})), {!therapy} &lt;&gt; &quot;Zenthera 50 mg&quot;, {!therapy} &lt;&gt; &quot;Zenthera 100 mg&quot;),
+    AND(NOT(ISBLANK({!insuranceType})), {!insuranceType} &lt;&gt; &quot;Commercial&quot;, {!insuranceType} &lt;&gt; &quot;Medicare&quot;, {!insuranceType} &lt;&gt; &quot;Medicaid&quot;, {!insuranceType} &lt;&gt; &quot;Uninsured&quot;),
+    LEN({!firstName}) &gt; 40,
+    LEN({!lastName}) &gt; 80,
+    LEN({!mobilePhone}) &gt; 40,
+    LEN({!prescriberName}) &gt; 80,
+    AND(NOT(ISBLANK({!birthdate})), {!birthdate} &gt; {!$Flow.CurrentDate})
+)</expression>
+    </formulas>
+    <formulas>
+        <description>TRUE when a mobile number was given, the matched patient has one on file, and they differ.</description>
+        <name>fxMobileConflict</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+    NOT(ISBLANK({!mobilePhone})),
+    NOT(ISBLANK({!Get_Single_Match.PersonMobilePhone})),
+    {!Get_Single_Match.PersonMobilePhone} &lt;&gt; {!mobilePhone}
+)</expression>
+    </formulas>
+    <formulas>
+        <description>Message when the patient record cannot be created.</description>
+        <name>fxPatientCreateFaultMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;Not enrolled: the patient record could not be created. Nothing was saved. Details: &quot; &amp; {!$Flow.FaultMessage}</expression>
+    </formulas>
+    <formulas>
+        <description>Confirmation message on success.</description>
+        <name>fxSuccessMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;Enrolled &quot; &amp; {!firstName} &amp; &quot; &quot; &amp; {!lastName} &amp; &quot; in the Zenthera Patient Support Program (&quot; &amp; {!therapy} &amp; &quot;). Enrollment number: &quot; &amp; {!Get_Created_Enrollment.Name} &amp; &quot;. &quot; &amp; IF({!varCreatedNewPatient}, &quot;A new patient record was created.&quot;, &quot;The existing patient record was used.&quot;)</expression>
+    </formulas>
+    <formulas>
+        <description>Lists every missing or invalid input so the caller can ask for corrected values.</description>
+        <name>fxValidationMessage</name>
+        <dataType>String</dataType>
+        <expression>&quot;Not enrolled. &quot;
+&amp; IF(ISBLANK({!firstName}), &quot;First name is required. &quot;, &quot;&quot;)
+&amp; IF(ISBLANK({!lastName}), &quot;Last name is required. &quot;, &quot;&quot;)
+&amp; IF(ISBLANK({!birthdate}), &quot;Birthdate is required (YYYY-MM-DD). &quot;, &quot;&quot;)
+&amp; IF(ISBLANK({!therapy}), &quot;Therapy is required (Zenthera 50 mg or Zenthera 100 mg). &quot;, &quot;&quot;)
+&amp; IF(ISBLANK({!insuranceType}), &quot;Insurance type is required (Commercial, Medicare, Medicaid or Uninsured). &quot;, &quot;&quot;)
+&amp; IF(AND(NOT(ISBLANK({!therapy})), {!therapy} &lt;&gt; &quot;Zenthera 50 mg&quot;, {!therapy} &lt;&gt; &quot;Zenthera 100 mg&quot;), &quot;Therapy must be Zenthera 50 mg or Zenthera 100 mg. &quot;, &quot;&quot;)
+&amp; IF(AND(NOT(ISBLANK({!insuranceType})), {!insuranceType} &lt;&gt; &quot;Commercial&quot;, {!insuranceType} &lt;&gt; &quot;Medicare&quot;, {!insuranceType} &lt;&gt; &quot;Medicaid&quot;, {!insuranceType} &lt;&gt; &quot;Uninsured&quot;), &quot;Insurance type must be Commercial, Medicare, Medicaid or Uninsured. &quot;, &quot;&quot;)
+&amp; IF(LEN({!firstName}) &gt; 40, &quot;First name must be 40 characters or fewer. &quot;, &quot;&quot;)
+&amp; IF(LEN({!lastName}) &gt; 80, &quot;Last name must be 80 characters or fewer. &quot;, &quot;&quot;)
+&amp; IF(LEN({!mobilePhone}) &gt; 40, &quot;Mobile must be 40 characters or fewer. &quot;, &quot;&quot;)
+&amp; IF(LEN({!prescriberName}) &gt; 80, &quot;Prescriber name must be 80 characters or fewer. &quot;, &quot;&quot;)
+&amp; IF(AND(NOT(ISBLANK({!birthdate})), {!birthdate} &gt; {!$Flow.CurrentDate}), &quot;Birthdate cannot be in the future. &quot;, &quot;&quot;)
+&amp; &quot;Nothing was created.&quot;</expression>
+    </formulas>
+    <interviewLabel>PSP Enroll Patient {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>PSP Enroll Patient</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <description>Creates the Program Enrollment. Its record Id is stored as {!Create_Enrollment}.</description>
+        <name>Create_Enrollment</name>
+        <label>Create Enrollment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_Created_Enrollment</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Patient_Created_In_This_Run</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>Consent_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Consent_Given__c</field>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Enrollment_Date__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Insurance_Type__c</field>
+            <value>
+                <elementReference>insuranceType</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Patient__c</field>
+            <value>
+                <elementReference>varPatientId</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Prescriber_Name__c</field>
+            <value>
+                <elementReference>prescriberName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Program__c</field>
+            <value>
+                <stringValue>Zenthera Patient Support Program</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Enrolled</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Therapy__c</field>
+            <value>
+                <elementReference>therapy</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Program_Enrollment__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordCreates>
+        <description>Creates the patient as a Person Account (record type Person Account). Its record Id is stored as {!Create_Patient}.</description>
+        <name>Create_Patient</name>
+        <label>Create Patient</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Use_New_Patient</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Set_Patient_Create_Error</targetReference>
+        </faultConnector>
+        <inputAssignments>
+            <field>FirstName</field>
+            <value>
+                <elementReference>firstName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>lastName</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PersonBirthdate</field>
+            <value>
+                <elementReference>birthdate</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>PersonMobilePhone</field>
+            <value>
+                <elementReference>mobilePhone</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>Get_Person_Account_Record_Type.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordDeletes>
+        <description>Removes the patient created in this run, so a failed enrollment does not leave a partial patient record.</description>
+        <name>Delete_New_Patient</name>
+        <label>Delete New Patient</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Set_Enrollment_Create_Error</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Set_Cleanup_Error</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varPatientId</elementReference>
+            </value>
+        </filters>
+        <object>Account</object>
+    </recordDeletes>
+    <recordLookups>
+        <description>Reads the new enrollment to get its auto-numbered Enrollment ID (ENR-...).</description>
+        <name>Get_Created_Enrollment</name>
+        <label>Get Created Enrollment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Set_Success</targetReference>
+        </connector>
+        <faultConnector>
+            <targetReference>Set_Success</targetReference>
+        </faultConnector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Create_Enrollment</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Program_Enrollment__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>All patients (Person Accounts) with the same first name, last name and full birthdate.</description>
+        <name>Get_Exact_Matches</name>
+        <label>Get Exact Matches</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Count_Exact_Matches</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsPersonAccount</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>FirstName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>firstName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>LastName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>lastName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PersonBirthdate</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>birthdate</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>The name-and-birthdate matches that also have the given mobile number.</description>
+        <name>Get_Exact_Mobile_Matches</name>
+        <label>Get Exact Mobile Matches</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Count_Mobile_Matches</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsPersonAccount</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>FirstName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>firstName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>LastName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>lastName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PersonBirthdate</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>birthdate</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PersonMobilePhone</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>mobilePhone</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>false</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>The one patient that matches on name, birthdate and mobile.</description>
+        <name>Get_Mobile_Match</name>
+        <label>Get Mobile Match</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Use_Mobile_Match</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsPersonAccount</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>FirstName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>firstName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>LastName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>lastName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PersonBirthdate</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>birthdate</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PersonMobilePhone</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>mobilePhone</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>A patient with the same first and last name but no birthdate recorded (could be the same person).</description>
+        <name>Get_Name_Match_Without_Birthdate</name>
+        <label>Get Name Match Without Birthdate</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Name_Match_Without_Birthdate_Found</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsPersonAccount</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>FirstName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>firstName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>LastName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>lastName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PersonBirthdate</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>An open (not Discontinued) enrollment of this patient in the Zenthera Patient Support Program. Enrollments entered manually with a blank Program also count, because Zenthera is the only program.</description>
+        <name>Get_Open_Enrollment</name>
+        <label>Get Open Enrollment</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Open_Enrollment_Found</targetReference>
+        </connector>
+        <filterLogic>1 AND (2 OR 3) AND 4</filterLogic>
+        <filters>
+            <field>Patient__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>varPatientId</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>Program__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Zenthera Patient Support Program</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Program__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Status__c</field>
+            <operator>NotEqualTo</operator>
+            <value>
+                <stringValue>Discontinued</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Program_Enrollment__c</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>The Person Account record type used for PSP patients (looked up by developer name, not hard-coded).</description>
+        <name>Get_Person_Account_Record_Type</name>
+        <label>Get Person Account Record Type</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_Patient</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Account</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>PersonAccount</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <queriedFields>Id</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <recordLookups>
+        <description>The one patient that matches on name and birthdate.</description>
+        <name>Get_Single_Match</name>
+        <label>Get Single Match</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Mobile_Conflict</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>IsPersonAccount</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>FirstName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>firstName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>LastName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>lastName</elementReference>
+            </value>
+        </filters>
+        <filters>
+            <field>PersonBirthdate</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>birthdate</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Account</object>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>PersonMobilePhone</queriedFields>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_Inputs</targetReference>
+        </connector>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>Required. Patient’s date of birth in ISO format YYYY-MM-DD, for example 1985-04-12. Used with the name to find an existing patient. Ask the user; never guess.</description>
+        <name>birthdate</name>
+        <dataType>Date</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Required. Must be true: the patient has agreed to join the program. If false or blank the enrollment is refused. Only set true when the user confirms the patient gave consent.</description>
+        <name>consentGiven</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>18-character Salesforce Id of the created enrollment, or of the existing open enrollment when the result is DUPLICATE_ENROLLMENT. Blank otherwise.</description>
+        <name>enrollmentId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Enrollment number shown to users, for example ENR-0004 (created enrollment, or the existing one when the result is DUPLICATE_ENROLLMENT).</description>
+        <name>enrollmentNumber</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Required. Patient’s first name, for example Asha. Maximum 40 characters.</description>
+        <name>firstName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Required. Patient’s insurance: exactly one of Commercial, Medicare, Medicaid, Uninsured.</description>
+        <name>insuranceType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>True only when the enrollment was created.</description>
+        <name>isSuccess</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>Required. Patient’s last name, for example Patel. Maximum 80 characters.</description>
+        <name>lastName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Optional but recommended. Patient’s mobile number, for example +91 98765 43210. Used to tell apart patients with the same name and birthdate. Maximum 40 characters.</description>
+        <name>mobilePhone</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>18-character Salesforce Id of the patient (Person Account) that was enrolled or already has an open enrollment. Blank when nothing was matched or created.</description>
+        <name>patientId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>NEW_PATIENT when a patient record was created, EXISTING_PATIENT when an existing one was used. Blank when the flow stopped before matching.</description>
+        <name>patientStatus</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Optional. Prescribing doctor’s full name, for example Dr. Anita Rao. Maximum 80 characters.</description>
+        <name>prescriberName</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Outcome code: SUCCESS, VALIDATION_ERROR, NO_CONSENT, AMBIGUOUS_MATCH, DUPLICATE_ENROLLMENT or ERROR. Never retry automatically after ERROR.</description>
+        <name>resultCode</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Plain-language result to show the user: confirmation on success, otherwise what went wrong and what to do.</description>
+        <name>resultMessage</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <description>Required. Prescribed therapy: exactly Zenthera 50 mg or Zenthera 100 mg.</description>
+        <name>therapy</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Internal. True when this run created the patient record (used for cleanup if enrollment fails).</description>
+        <name>varCreatedNewPatient</name>
+        <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <value>
+            <booleanValue>false</booleanValue>
+        </value>
+    </variables>
+    <variables>
+        <description>Internal. Number of patients matching name and birthdate.</description>
+        <name>varExactMatchCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>Internal. Number of patients matching name, birthdate and mobile.</description>
+        <name>varMobileMatchCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <description>Internal. Id of the patient being enrolled.</description>
+        <name>varPatientId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

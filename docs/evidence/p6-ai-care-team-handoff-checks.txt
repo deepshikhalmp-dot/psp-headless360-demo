@@ -1,0 +1,392 @@
+AI care team handoff checks (2026-11-22, flow PSP_Care_Team_Handoff_Summary, prompt template v2). Automated checks per run: no case reclassified as safety, no case/shipment/enrollment number outside the facts, no forbidden wording, uncategorised wording kept.
+
+### Round 1: all 12 enrollments
+--- ENR-0003 [SUCCESS]
+CARE TEAM HANDOFF: Sonali Singh (ENR-0003)  
+Summary: The patient is enrolled in the Zenthera Patient Support Program but has incomplete data and an open case requiring review. No recorded shipments are available to determine a refill due date.  
+
+1. Patient and therapy: Sonali Singh | ENR-0003 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given (date not recorded).  
+2. Refill status (recorded shipments only): No Delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001068: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Open case 00001068 has no PSP issue category; a person needs to review it.  
+   - Consent is recorded as given, but the consent date is missing.  
+5. Suggested non-clinical next steps:  
+   - A person reviews the case and sets its PSP issue category (00001068).  
+   - Complete the missing data if it is known; never guess.  
+   - Questions about dosing, missed doses, or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0007 [SUCCESS]
+CARE TEAM HANDOFF: Riya Demo Sharma (ENR-0007)  
+Summary: The patient’s refill is overdue by 14 days based on recorded shipments. There are multiple open cases, including a safety case in human safety review and shipment delay cases for shipment DSP-0016, which require follow-up.  
+
+1. Patient and therapy: Riya Demo Sharma | ENR-0007 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-16.  
+2. Refill status (recorded shipments only): Next refill was due 2026-11-08 (last delivered 2026-10-09 for 30 days); 14 day(s) overdue as of 2026-11-22. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001070: Shipment Delay (shipment DSP-0016), status New.  
+   - Case 00001071: in human safety review.  
+   - Case 00001072: Shipment Delay (shipment DSP-0016), status New.  
+   - Case 00001073: Shipment Delay (shipment DSP-0016), status New.  
+   - Case 00001124: Refill Support, status New.  
+4. Points to note:  
+   - Refill overdue by 14 day(s) based on recorded shipments only (last delivered shipment DSP-0015 on 2026-10-09 for 30 days, due 2026-11-08).  
+   - Open possible adverse event case waiting for human safety review: 00001071.  
+   - Shipment DSP-0016 is delayed; open shipment delay cases already cover it: 00001070, 00001072, 00001073.  
+   - Three open shipment delay cases exist for shipment DSP-0016: 00001070, 00001072, 00001073.  
+5. Suggested non-clinical next steps:  
+   - Review at the care team meeting.  
+   - The safety case 00001071 remains with the human safety review team.  
+   - Follow up on the open cases; no new case is needed (00001070, 00001072, 00001073).  
+   - Questions about dosing, missed doses, or side effects should be directed to the patient’s prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0014 [SUCCESS]
+CARE TEAM HANDOFF: Maya Demo MCPTest (ENR-0014)  
+Summary: Maya Demo MCPTest is enrolled in the Zenthera Patient Support Program. There are no recorded shipments or open cases requiring attention at this time.  
+
+1. Patient and therapy: Maya Demo MCPTest | ENR-0014 | Zenthera 100 mg | status Enrolled | insurance Commercial | consent given on 2026-11-17.  
+2. Refill status (recorded shipments only): No Delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - No open cases.  
+4. Points to note:  
+   - None.  
+5. Suggested non-clinical next steps:  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+
+Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0015 [SUCCESS]
+CARE TEAM HANDOFF: John Doe (ENR-0015)  
+Summary: The patient is enrolled in the Zenthera Patient Support Program with no recorded shipments or open cases. No immediate follow-up is indicated based on the available data.  
+
+1. Patient and therapy: John Doe | ENR-0015 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-17  
+2. Refill status (recorded shipments only): No Delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - No open cases.  
+4. Points to note:  
+   - None.  
+5. Suggested non-clinical next steps:  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0016 [SUCCESS]
+CARE TEAM HANDOFF: Meera Demo Nov18 (ENR-0016)  
+Summary: The care team should address the patient’s insurance support case. No recorded shipments are available to calculate a refill due date.  
+1. Patient and therapy: Meera Demo Nov18 | ENR-0016 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-17.  
+2. Refill status (recorded shipments only): No Delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001074: Insurance Support, status New.  
+4. Points to note:  
+   - None.  
+5. Suggested non-clinical next steps:  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0017 [SUCCESS]
+CARE TEAM HANDOFF: Meera Demo Nov19 (ENR-0017)  
+Summary: The patient is enrolled in the Zenthera Patient Support Program with no recorded shipments to date. There are no open cases or exceptions noted.  
+
+1. Patient and therapy: Meera Demo Nov19 | ENR-0017 | Zenthera 100 mg | status Enrolled | insurance Commercial | consent given on 2026-11-17  
+2. Refill status (recorded shipments only): No delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - No open cases.  
+4. Points to note:  
+   - None.  
+5. Suggested non-clinical next steps:  
+   - Questions about dosing, missed doses, or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0018 [SUCCESS]
+CARE TEAM HANDOFF: Mriduka Sharma (ENR-0018)  
+Summary: A case requires review and categorization, and there is incomplete consent data. Refill status is on track based on recorded shipments.  
+
+1. Patient and therapy: Mriduka Sharma | ENR-0018 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given (date not recorded).  
+2. Refill status (recorded shipments only): next refill due 2026-12-18 (last delivered 2026-11-18 for 30 days); on track. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001075: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Open case 00001075 has no PSP issue category; a person needs to review it.  
+   - Consent is recorded as given, but the consent date is missing.  
+5. Suggested non-clinical next steps:  
+   - A person reviews the case and sets its PSP issue category (00001075).  
+   - Complete the missing data if it is known; never guess.  
+   - Questions about dosing, missed doses, or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0019 [SUCCESS]
+CARE TEAM HANDOFF: Meera Demo Nov20 (ENR-0019)  
+Summary: The patient is enrolled in the Zenthera Patient Support Program with consent provided on 2026-11-18. No shipments are recorded to date, and there are no open cases or exceptions noted.  
+
+1. Patient and therapy: Meera Demo Nov20 | ENR-0019 | Zenthera 100 mg | status Enrolled | insurance Commercial | consent given on 2026-11-18.  
+2. Refill status (recorded shipments only): No delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - No open cases.  
+4. Points to note:  
+   - None.  
+5. Suggested non-clinical next steps:  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0057 [SUCCESS]
+CARE TEAM HANDOFF: Asha Manual Demo (ENR-0057)  
+Summary: The patient is enrolled in the Zenthera Patient Support Program and has given consent. A shipment delay has been identified and is being tracked through an open case.  
+
+1. Patient and therapy: Asha Manual Demo | ENR-0057 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-20.  
+2. Refill status (recorded shipments only): No delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001125: Shipment Delay (shipment DSP-0072), status New.  
+4. Points to note:  
+   - Shipment DSP-0072 is delayed; open Shipment Delay case(s) already cover it: 00001125.  
+5. Suggested non-clinical next steps:  
+   - Follow up the open case(s); no new case needed (00001125).  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0058 [SUCCESS]
+CARE TEAM HANDOFF: Neha Slack Demo (ENR-0058)  
+Summary: The care team’s attention is needed to review and categorize an open case. No recorded shipment data is available to calculate a refill due date.  
+
+1. Patient and therapy: Neha Slack Demo | ENR-0058 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-19.  
+2. Refill status (recorded shipments only): No delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001126: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Open case 00001126 has no PSP issue category; a person needs to review it.  
+5. Suggested non-clinical next steps:  
+   - A person reviews the case and sets its PSP issue category (00001126).  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0059 [SUCCESS]
+CARE TEAM HANDOFF: Ayush Mehta (ENR-0059)  
+Summary: The care team’s attention is needed to address an open case requiring review and to resolve a delayed shipment that is not yet linked to an open case.  
+
+1. Patient and therapy: Ayush Mehta | ENR-0059 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-19.  
+2. Refill status (recorded shipments only): No Delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001127: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Shipment DSP-0073 is Delayed; no open Shipment Delay case covers it.  
+   - Open case 00001127 has no PSP issue category; a person needs to review it.  
+5. Suggested non-clinical next steps:  
+   - Consider a new case after a duplicate check and the user's approval.  
+   - A person reviews the case and sets its PSP issue category (00001127).  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0060 [SUCCESS]
+CARE TEAM HANDOFF: Tara Slack Showcase (ENR-0060)  
+Summary: Tara Slack Showcase is enrolled in the Zenthera Patient Support Program and has provided consent. There are no recorded shipments to date, and no open cases are reported.  
+
+1. Patient and therapy: Tara Slack Showcase | ENR-0060 | Zenthera 100 mg | status Enrolled | insurance Commercial | consent given on 2026-11-19.  
+2. Refill status (recorded shipments only): No Delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - No open cases.  
+4. Points to note:  
+   - None.  
+5. Suggested non-clinical next steps:  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+### Rounds 2-3: ENR-0003, 0018, 0058, 0059, 0007 (x2)
+--- ENR-0003 [SUCCESS]
+CARE TEAM HANDOFF: Sonali Singh (ENR-0003)  
+Summary: The care team’s attention is needed to review and categorize an open case and address incomplete data. There is no recorded shipment information to determine refill status.  
+
+1. Patient and therapy: Sonali Singh | ENR-0003 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given (date not recorded).  
+2. Refill status (recorded shipments only): No delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001068: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Open case 00001068 has no PSP issue category; a person needs to review it.  
+   - Consent is recorded as given, but the consent date is missing.  
+5. Suggested non-clinical next steps:  
+   - A person reviews the case and sets its PSP issue category (00001068).  
+   - Complete the missing data if it is known; never guess.  
+   - Questions about dosing, missed doses, or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0018 [SUCCESS]
+CARE TEAM HANDOFF: Mriduka Sharma (ENR-0018)  
+Summary: Mriduka Sharma is enrolled in the Zenthera Patient Support Program and has a pending case requiring review. The consent date is missing from the records.  
+
+1. Patient and therapy: Mriduka Sharma | ENR-0018 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given (date not recorded).  
+2. Refill status (recorded shipments only): Next refill due 2026-12-18 (last delivered 2026-11-18 for 30 days); on track. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001075: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Open case 00001075 has no PSP issue category; a person needs to review it.  
+   - Consent is recorded as given, but the consent date is missing.  
+5. Suggested non-clinical next steps:  
+   - A person reviews the case and sets its PSP issue category (00001075).  
+   - Complete the missing data if it is known; never guess.  
+   - Questions about dosing, missed doses, or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0058 [SUCCESS]
+CARE TEAM HANDOFF: Neha Slack Demo (ENR-0058)  
+Summary: The care team’s attention is required to review and categorize an open case. No recorded shipments are available to determine a refill due date.  
+
+1. Patient and therapy: Neha Slack Demo | ENR-0058 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-19.  
+2. Refill status (recorded shipments only): No Delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001126: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Open case 00001126 has no PSP issue category; a person needs to review it.  
+5. Suggested non-clinical next steps:  
+   - A person reviews the case and sets its PSP issue category (00001126).  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0059 [SUCCESS]
+CARE TEAM HANDOFF: Ayush Mehta (ENR-0059)  
+Summary: The care team’s attention is required to address an open case that needs categorization and a delayed shipment without an associated open case. No recorded shipments are available to calculate a refill due date.  
+
+1. Patient and therapy: Ayush Mehta | ENR-0059 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-19.  
+2. Refill status (recorded shipments only): No Delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001127: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Shipment DSP-0073 is Delayed; no open Shipment Delay case covers it.  
+   - Open case 00001127 has no PSP issue category; a person needs to review it.  
+5. Suggested non-clinical next steps:  
+   - Consider a new case after a duplicate check and the user's approval.  
+   - A person reviews the case and sets its PSP issue category (00001127).  
+   - Questions about dosing, missed doses, or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0007 [SUCCESS]
+CARE TEAM HANDOFF: Riya Demo Sharma (ENR-0007)  
+Summary: The patient’s refill is overdue by 14 days based on recorded shipments, and there are multiple open cases requiring attention. Shipment DSP-0016 is delayed, with duplicate open cases addressing this issue. One case is in human safety review.  
+
+1. Patient and therapy: Riya Demo Sharma | ENR-0007 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-16.  
+2. Refill status (recorded shipments only): Next refill was due 2026-11-08 (last delivered 2026-10-09 for 30 days); 14 day(s) overdue as of 2026-11-22.  
+3. Open issues:  
+   - Case 00001070: Shipment Delay (shipment DSP-0016), status New.  
+   - Case 00001071: in human safety review.  
+   - Case 00001072: Shipment Delay (shipment DSP-0016), status New.  
+   - Case 00001073: Shipment Delay (shipment DSP-0016), status New.  
+   - Case 00001124: Refill Support, status New.  
+4. Points to note:  
+   - Refill overdue by 14 day(s) based on recorded shipments only (last delivered shipment DSP-0015 on 2026-10-09 for 30 days, due 2026-11-08).  
+   - Open possible adverse event case(s) waiting for human safety review: 00001071.  
+   - Shipment DSP-0016 is delayed; open Shipment Delay case(s) already cover it: 00001070, 00001072, 00001073.  
+   - Three open Shipment Delay cases for shipment DSP-0016: 00001070, 00001072, 00001073.  
+5. Suggested non-clinical next steps:  
+   - Review at the care team meeting.  
+   - The safety case(s) 00001071 stay with the human safety review team.  
+   - Follow up the open case(s); no new case needed (00001070, 00001072, 00001073).  
+   - Questions about dosing, missed doses or side effects go to the patient’s prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0003 [SUCCESS]
+CARE TEAM HANDOFF: Sonali Singh (ENR-0003)  
+Summary: The care team’s attention is required to review an open case without a PSP issue category and to address incomplete consent data.  
+
+1. Patient and therapy: Sonali Singh | ENR-0003 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given (date not recorded).  
+2. Refill status (recorded shipments only): No delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001068: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Open case 00001068 has no PSP issue category; a person needs to review it.  
+   - Consent is recorded as given, but the consent date is missing.  
+5. Suggested non-clinical next steps:  
+   - A person reviews the case and sets its PSP issue category (00001068).  
+   - Complete the missing data if it is known; never guess.  
+   - Questions about dosing, missed doses, or side effects go to the patient’s prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0018 [SUCCESS]
+CARE TEAM HANDOFF: Mriduka Sharma (ENR-0018)  
+Summary: Mriduka Sharma is enrolled in the Zenthera Patient Support Program and is on track for the next recorded refill. Attention is needed to review and categorize an open case and to complete missing consent data.  
+
+1. Patient and therapy: Mriduka Sharma | ENR-0018 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given (date not recorded).  
+2. Refill status (recorded shipments only): Next refill due 2026-12-18 (last delivered 2026-11-18 for 30 days); on track. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001075: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Open case 00001075 has no PSP issue category; a person needs to review it.  
+   - Consent is recorded as given, but the consent date is missing.  
+5. Suggested non-clinical next steps:  
+   - A person reviews the case and sets its PSP issue category (00001075).  
+   - Complete the missing data if it is known; never guess.  
+   - Questions about dosing, missed doses, or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0058 [SUCCESS]
+CARE TEAM HANDOFF: Neha Slack Demo (ENR-0058)  
+Summary: The patient is enrolled in the Zenthera Patient Support Program with an open case requiring review. No recorded shipments are available to calculate a refill due date.  
+
+1. Patient and therapy: Neha Slack Demo | ENR-0058 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-19.  
+2. Refill status (recorded shipments only): No delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001126: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Open case 00001126 has no PSP issue category; a person needs to review it.  
+5. Suggested non-clinical next steps:  
+   - A person reviews the case and sets its PSP issue category (00001126).  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0059 [SUCCESS]
+CARE TEAM HANDOFF: Ayush Mehta (ENR-0059)  
+Summary: The care team’s attention is needed to address an uncategorized open case and a delayed shipment. No recorded shipments are available to determine refill status.  
+
+1. Patient and therapy: Ayush Mehta | ENR-0059 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-19.  
+2. Refill status (recorded shipments only): No Delivered shipment with a date and days supply is recorded, so no due date can be calculated. This reflects recorded shipments only, not whether the patient took the medication.  
+3. Open issues:  
+   - Case 00001127: no PSP issue category yet (needs review), status New.  
+4. Points to note:  
+   - Shipment DSP-0073 is Delayed; no open Shipment Delay case covers it.  
+   - Open case 00001127 has no PSP issue category; a person needs to review it.  
+5. Suggested non-clinical next steps:  
+   - Consider a new case after a duplicate check and the user's approval.  
+   - A person reviews the case and sets its PSP issue category (00001127).  
+   - Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.
+
+--- ENR-0007 [SUCCESS]
+CARE TEAM HANDOFF: Riya Demo Sharma (ENR-0007)  
+Summary: The patient’s refill is 14 days overdue based on recorded shipments. Multiple shipment delay cases and a safety case are open and require attention.  
+
+1. Patient and therapy: Riya Demo Sharma | ENR-0007 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-16.  
+2. Refill status (recorded shipments only): Next refill was due 2026-11-08 (last delivered 2026-10-09 for 30 days); 14 day(s) overdue as of 2026-11-22.  
+3. Open issues:  
+   - Case 00001070: Shipment Delay (shipment DSP-0016), status New.  
+   - Case 00001071: in human safety review.  
+   - Case 00001072: Shipment Delay (shipment DSP-0016), status New.  
+   - Case 00001073: Shipment Delay (shipment DSP-0016), status New.  
+   - Case 00001124: Refill Support, status New.  
+4. Points to note:  
+   - Refill overdue by 14 day(s) based on recorded shipments only (last delivered shipment DSP-0015 on 2026-10-09 for 30 days, due 2026-11-08).  
+   - Open possible adverse event case(s) waiting for human safety review: 00001071.  
+   - Shipment DSP-0016 is delayed; open Shipment Delay case(s) already cover it: 00001070, 00001072, 00001073.  
+   - Three open Shipment Delay cases for shipment DSP-0016: 00001070, 00001072, 00001073.  
+5. Suggested non-clinical next steps:  
+   - Review at the care team meeting.  
+   - The safety case(s) 00001071 stay with the human safety review team.  
+   - Follow up the open case(s); no new case needed (00001070, 00001072, 00001073).  
+   - Questions about dosing, missed doses or side effects go to the patient’s prescriber (911 in an emergency).  
+
+6. Data as of 2026-11-22. Written by AI from Salesforce facts; nothing was created, changed or posted.

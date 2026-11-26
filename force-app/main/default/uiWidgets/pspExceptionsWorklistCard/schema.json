@@ -1,0 +1,75 @@
+{
+  "title": "PSP exceptions worklist inputs",
+  "type": "object",
+  "properties": {
+    "attributes": {
+      "lightning:type": "lightning__objectType",
+      "properties": {
+        "title": {
+          "title": "Title",
+          "lightning:type": "lightning__textType"
+        },
+        "summary": {
+          "title": "Summary",
+          "lightning:type": "lightning__textType"
+        },
+        "highLabel": {
+          "title": "High count",
+          "lightning:type": "lightning__textType"
+        },
+        "mediumLabel": {
+          "title": "Medium count",
+          "lightning:type": "lightning__textType"
+        },
+        "lowLabel": {
+          "title": "Low count",
+          "lightning:type": "lightning__textType"
+        },
+        "dataGapLabel": {
+          "title": "Data gap count",
+          "lightning:type": "lightning__textType"
+        },
+        "hasHigh": {
+          "title": "Has high",
+          "lightning:type": "lightning__booleanType"
+        },
+        "hasMedium": {
+          "title": "Has medium",
+          "lightning:type": "lightning__booleanType"
+        },
+        "hasLow": {
+          "title": "Has low",
+          "lightning:type": "lightning__booleanType"
+        },
+        "hasDataGaps": {
+          "title": "Has data gaps",
+          "lightning:type": "lightning__booleanType"
+        },
+        "hasNoItems": {
+          "title": "No items",
+          "lightning:type": "lightning__booleanType"
+        },
+        "highItems": {
+          "title": "High items",
+          "lightning:type": "lightning__textType"
+        },
+        "mediumItems": {
+          "title": "Medium items",
+          "lightning:type": "lightning__textType"
+        },
+        "lowItems": {
+          "title": "Low items",
+          "lightning:type": "lightning__textType"
+        },
+        "dataGapItems": {
+          "title": "Data gap items",
+          "lightning:type": "lightning__textType"
+        },
+        "footer": {
+          "title": "Footer",
+          "lightning:type": "lightning__textType"
+        }
+      }
+    }
+  }
+}

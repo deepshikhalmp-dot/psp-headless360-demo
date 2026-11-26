@@ -1,0 +1,131 @@
+# This file is used for Git repositories to specify intentionally untracked files that Git should ignore. 
+# If you are not using git, you can delete this file. For more information see: https://git-scm.com/docs/gitignore
+# For useful gitignore templates see: https://github.com/github/gitignore
+
+# Salesforce cache
+.sf/
+.sfdx/
+.localdevserver/
+deploy-options.json
+
+# LWC VSCode autocomplete
+**/lwc/jsconfig.json
+
+# LWC Jest coverage reports
+coverage/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# ApexPMD cache
+.pmdCache
+
+# Eslint cache
+.eslintcache
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Local environment variables
+.env
+
+# Python Salesforce Functions
+**/__pycache__/
+**/.venv/
+**/venv/
+tools/evidence-guide/.venv/
+tools/evidence-guide/.profile-*/
+
+# ---------------------------------------------------------------------------
+# PSP repo scope (psp-headless360-demo): only the Zenthera PSP project is tracked.
+# The rest of the SDO org retrieve stays local.
+# ---------------------------------------------------------------------------
+/package-metadata/
+/metadata-retrieval-logs/
+/metadata-retrieval-summary.md
+/backups/
+/manifest/
+
+# force-app: whitelist PSP components only
+/force-app/main/default/*
+!/force-app/main/default/aiAuthoringBundles/
+/force-app/main/default/aiAuthoringBundles/*
+!/force-app/main/default/aiAuthoringBundles/PSP_*/
+!/force-app/main/default/bots/
+/force-app/main/default/bots/*
+!/force-app/main/default/bots/PSP_*/
+!/force-app/main/default/genAiPlannerBundles/
+/force-app/main/default/genAiPlannerBundles/*
+!/force-app/main/default/genAiPlannerBundles/PSP_*/
+!/force-app/main/default/apiNamedQueries/
+/force-app/main/default/apiNamedQueries/*
+!/force-app/main/default/apiNamedQueries/PSP*
+!/force-app/main/default/applications/
+/force-app/main/default/applications/*
+!/force-app/main/default/applications/Patient_Support_Program.app-meta.xml
+!/force-app/main/default/classes/
+/force-app/main/default/classes/*
+!/force-app/main/default/classes/PSP_*
+!/force-app/main/default/flows/
+/force-app/main/default/flows/*
+!/force-app/main/default/flows/PSP_*
+!/force-app/main/default/genAiPromptTemplates/
+/force-app/main/default/genAiPromptTemplates/*
+!/force-app/main/default/genAiPromptTemplates/PSP_*
+!/force-app/main/default/layouts/
+/force-app/main/default/layouts/*
+!/force-app/main/default/layouts/Dispense__c-Dispense Layout.layout-meta.xml
+!/force-app/main/default/layouts/Program_Enrollment__c-Program Enrollment Layout.layout-meta.xml
+!/force-app/main/default/layouts/PersonAccount-Person Account Layout.layout-meta.xml
+!/force-app/main/default/lightningTypes/
+/force-app/main/default/lightningTypes/*
+!/force-app/main/default/lightningTypes/pspExceptionsWorklist/
+!/force-app/main/default/uiWidgets/
+/force-app/main/default/uiWidgets/*
+!/force-app/main/default/uiWidgets/pspExceptionsWorklistCard/
+!/force-app/main/default/mcpServerDefinitions/
+/force-app/main/default/mcpServerDefinitions/*
+!/force-app/main/default/mcpServerDefinitions/PSP*
+!/force-app/main/default/permissionsets/
+/force-app/main/default/permissionsets/*
+!/force-app/main/default/permissionsets/PSP_*
+!/force-app/main/default/tabs/
+/force-app/main/default/tabs/*
+!/force-app/main/default/tabs/Dispense__c.tab-meta.xml
+!/force-app/main/default/tabs/Program_Enrollment__c.tab-meta.xml
+!/force-app/main/default/objects/
+/force-app/main/default/objects/*
+!/force-app/main/default/objects/Program_Enrollment__c/
+!/force-app/main/default/objects/Dispense__c/
+!/force-app/main/default/objects/Account/
+/force-app/main/default/objects/Account/*
+!/force-app/main/default/objects/Account/listViews/
+/force-app/main/default/objects/Account/listViews/*
+!/force-app/main/default/objects/Account/listViews/PSP_Patients.listView-meta.xml
+!/force-app/main/default/objects/Case/
+/force-app/main/default/objects/Case/*
+!/force-app/main/default/objects/Case/fields/
+/force-app/main/default/objects/Case/fields/*
+!/force-app/main/default/objects/Case/fields/PSP_*
+!/force-app/main/default/objects/PersonAccount/
+/force-app/main/default/objects/PersonAccount/*
+!/force-app/main/default/objects/PersonAccount/compactLayouts/
+/force-app/main/default/objects/PersonAccount/compactLayouts/*
+!/force-app/main/default/objects/PersonAccount/compactLayouts/PSP_Patient.compactLayout-meta.xml
+
+# tools: never commit the browser profile or the Python venv
+/tools/evidence-guide/.venv/
+/tools/evidence-guide/.profile-*/

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Zenthera Patient Support Program (demo, fictional data): read-only Program Exceptions Desk tools. List today&apos;s program exceptions from CRM data and check for a duplicate open case before creating one.</description>
+    <masterLabel>PSP Exceptions MCP</masterLabel>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-PSP_ProgramExceptionsService</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>PSP_ProgramExceptionsService</operation>
+        </apiDefinition>
+        <descriptionOverride>Read-only. Lists Zenthera Patient Support Program (demo, fictional) exceptions from CRM data: overdue or due-soon refills (recorded shipments only), delayed or long-shipped shipments, no shipment after enrollment, consent pending, open safety reviews, duplicate open cases, uncategorised cases and missing data (DATA_INCOMPLETE). Use for &quot;show today&apos;s program exceptions&quot;, &quot;which shipments are delayed&quot; or &quot;what needs attention for ENR-0007&quot;. All inputs optional: asOfDate (YYYY-MM-DD), enrollmentNumber, exceptionTypes (comma separated, e.g. SHIPMENT_DELAYED), pageSize, afterEnrollmentNumber (next page). Show resultMessage and itemsText as written. Suggested actions need the user&apos;s approval; never create cases yourself. Never say whether a patient took the medication; no medical advice.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>PSP_ProgramExceptionsServiceapex_PSP_ProgramExceptionsService</toolName>
+        <toolTitle>PSP_Get_Program_Exceptions</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-PSP_CaseDuplicateCheck</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>PSP_CaseDuplicateCheck</operation>
+        </apiDefinition>
+        <descriptionOverride>Read-only. Before creating a Zenthera Patient Support Program service case, checks for an open case with the same patient, issue category and shipment. Inputs: enrollmentNumber (ENR-...) or patientId; category (Shipment Delay, Refill Support, Insurance Support, General Program Support or Possible Adverse Event); optional dispenseNumber (DSP-...). Returns resultCode: EXISTING_CASE (do not create; see matchingCaseNumbers), POSSIBLE_DUPLICATE (open case of that category without a shipment link: ask the user), NO_DUPLICATE (a case may be created only after the user approves), INVALID_INPUT, NOT_FOUND or ERROR; plus resultMessage (show it) and unclassifiedOpenCaseNumbers (open cases without a category). Never creates a case.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>PSP_CaseDuplicateCheckapex_PSP_CaseDuplicateCheck</toolName>
+        <toolTitle>PSP_Check_Duplicate_Case</toolTitle>
+    </tools>
+</McpServerDefinition>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenAiPlannerBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Zenthera Patient Support Program (PSP) specialist for resolution planning, read-only: turns program exceptions into a step-by-step resolution plan (skip because a case exists, create a case after approval, prepare a care team handoff, triage an uncategorised case, follow up consent) and checks for a duplicate open case before any new case. Use for &apos;prepare a resolution plan for the delayed shipments&apos;, &apos;is there already a case for &lt;patient&gt; shipment DSP-…&apos;. Does not create cases or post messages in this phase.</description>
+    <localTopicLinks>
+        <genAiPluginName>agent_router_16jgL000002hMc1</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>duplicate_check_16jgL000002hMc1</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>off_topic_16jgL000002hMc1</genAiPluginName>
+    </localTopicLinks>
+    <localTopicLinks>
+        <genAiPluginName>resolution_plan_16jgL000002hMc1</genAiPluginName>
+    </localTopicLinks>
+    <localTopics>
+        <fullName>agent_router_16jgL000002hMc1</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Route Zenthera PSP resolution planning and duplicate case checks.</description>
+        <developerName>agent_router_16jgL000002hMc1</developerName>
+        <genAiPluginInstructions>
+            <description>You are the PSP Care Resolution Agent for the Zenthera Patient Support Program, a fictional demo program. You turn program exceptions into a resolution plan and check for existing open cases before anything new is created. In this phase you are read-only: you never create, change or delete records and you never post messages. Every proposed write (a new case, a handoff) needs the user&apos;s explicit approval and is carried out by a separate approved step; say so clearly. Answer only from your action results; never invent case numbers, patients or dates. Never say whether a patient is or is not taking the medication. Never give medical advice: medical questions go to the prescriber, and in an emergency the patient should call 911. Possible side effects are only flagged for human safety review; never say anything has been reported to a regulator. Program policy questions belong to the PSP Program Knowledge Agent.</description>
+            <developerName>instruction0_179gL0000035zAp</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL0000035zAp</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>agent_router</localDeveloperName>
+        <masterLabel>Agent Router</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>resolution_plan_16jgL000002hMc1</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Builds a read-only resolution plan from today&apos;s Zenthera PSP program exceptions.</description>
+        <developerName>resolution_plan_16jgL000002hMc1</developerName>
+        <genAiPluginInstructions>
+            <description>You are the PSP Care Resolution Agent for the Zenthera Patient Support Program, a fictional demo program. You turn program exceptions into a resolution plan and check for existing open cases before anything new is created. In this phase you are read-only: you never create, change or delete records and you never post messages. Every proposed write (a new case, a handoff) needs the user&apos;s explicit approval and is carried out by a separate approved step; say so clearly. Answer only from your action results; never invent case numbers, patients or dates. Never say whether a patient is or is not taking the medication. Never give medical advice: medical questions go to the prescriber, and in an emergency the patient should call 911. Possible side effects are only flagged for human safety review; never say anything has been reported to a regulator. Program policy questions belong to the PSP Program Knowledge Agent.</description>
+            <developerName>instruction0_179gL0000035zAo</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL0000035zAo</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>get_program_exceptions_179gL0000035zAo</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>get_program_exceptions_179gL0000035zAo</fullName>
+            <description>Read-only. Lists PSP program exceptions from CRM data, most severe first, each with a fact and a suggested action (PREPARE_HANDOFF, CREATE_CASE, SKIP_EXISTING_CASE, REVIEW_POSSIBLE_DUPLICATE, FOLLOW_UP_CONSENT, TRIAGE_CASE, REVIEW_DATA, NONE). Optional filters: one enrollment number and comma separated exception types.</description>
+            <developerName>get_program_exceptions_179gL0000035zAo</developerName>
+            <invocationTarget>PSP_ProgramExceptionsService</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>get_program_exceptions</localDeveloperName>
+            <masterLabel>Get Program Exceptions</masterLabel>
+        </localActions>
+        <localDeveloperName>resolution_plan</localDeveloperName>
+        <masterLabel>Resolution Plan</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>off_topic_16jgL000002hMc1</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Redirect requests that are not about PSP resolution plans or duplicate case checks.</description>
+        <developerName>off_topic_16jgL000002hMc1</developerName>
+        <genAiPluginInstructions>
+            <description>You are the PSP Care Resolution Agent for the Zenthera Patient Support Program, a fictional demo program. You turn program exceptions into a resolution plan and check for existing open cases before anything new is created. In this phase you are read-only: you never create, change or delete records and you never post messages. Every proposed write (a new case, a handoff) needs the user&apos;s explicit approval and is carried out by a separate approved step; say so clearly. Answer only from your action results; never invent case numbers, patients or dates. Never say whether a patient is or is not taking the medication. Never give medical advice: medical questions go to the prescriber, and in an emergency the patient should call 911. Possible side effects are only flagged for human safety review; never say anything has been reported to a regulator. Program policy questions belong to the PSP Program Knowledge Agent.</description>
+            <developerName>instruction0_179gL0000035zAn</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL0000035zAn</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localDeveloperName>off_topic</localDeveloperName>
+        <masterLabel>Off Topic</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <localTopics>
+        <fullName>duplicate_check_16jgL000002hMc1</fullName>
+        <canEscalate>false</canEscalate>
+        <description>Checks whether an open Zenthera PSP case already covers the same patient, issue category and shipment.</description>
+        <developerName>duplicate_check_16jgL000002hMc1</developerName>
+        <genAiPluginInstructions>
+            <description>You are the PSP Care Resolution Agent for the Zenthera Patient Support Program, a fictional demo program. You turn program exceptions into a resolution plan and check for existing open cases before anything new is created. In this phase you are read-only: you never create, change or delete records and you never post messages. Every proposed write (a new case, a handoff) needs the user&apos;s explicit approval and is carried out by a separate approved step; say so clearly. Answer only from your action results; never invent case numbers, patients or dates. Never say whether a patient is or is not taking the medication. Never give medical advice: medical questions go to the prescriber, and in an emergency the patient should call 911. Possible side effects are only flagged for human safety review; never say anything has been reported to a regulator. Program policy questions belong to the PSP Program Knowledge Agent.</description>
+            <developerName>instruction0_179gL0000035zAq</developerName>
+            <language>en_US</language>
+            <masterLabel>instruction0_179gL0000035zAq</masterLabel>
+            <sortOrder>1</sortOrder>
+        </genAiPluginInstructions>
+        <language>en_US</language>
+        <localActionLinks>
+            <functionName>check_duplicate_case_179gL0000035zAq</functionName>
+        </localActionLinks>
+        <localActions>
+            <fullName>check_duplicate_case_179gL0000035zAq</fullName>
+            <description>Read-only. Before a new PSP service case: checks open cases for the same patient, issue category and optional shipment. Never creates a case.</description>
+            <developerName>check_duplicate_case_179gL0000035zAq</developerName>
+            <invocationTarget>PSP_CaseDuplicateCheck</invocationTarget>
+            <invocationTargetType>apex</invocationTargetType>
+            <isConfirmationRequired>false</isConfirmationRequired>
+            <isIncludeInProgressIndicator>false</isIncludeInProgressIndicator>
+            <localDeveloperName>check_duplicate_case</localDeveloperName>
+            <masterLabel>Check Duplicate Case</masterLabel>
+        </localActions>
+        <localDeveloperName>duplicate_check</localDeveloperName>
+        <masterLabel>Duplicate Case Check</masterLabel>
+        <pluginType>Topic</pluginType>
+    </localTopics>
+    <masterLabel>PSP Care Resolution Agent</masterLabel>
+    <plannerType>Atlas__ConcurrentMultiAgentOrchestration</plannerType>
+</GenAiPlannerBundle>

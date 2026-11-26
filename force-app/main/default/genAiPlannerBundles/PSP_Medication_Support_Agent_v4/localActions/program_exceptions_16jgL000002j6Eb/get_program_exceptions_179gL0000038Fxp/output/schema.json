@@ -1,0 +1,38 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "card" : {
+      "title" : "Card",
+      "description" : "Program exceptions worklist card: counts by severity and the items grouped HIGH, MEDIUM, LOW and data gaps.",
+      "lightning:type" : "c__pspExceptionsWorklist",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : true,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "itemsText" : {
+      "title" : "Items Text",
+      "description" : "One line per item, most severe first: severity, patient, enrollment, type, fact, suggested action.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "resultCode" : {
+      "title" : "Result Code",
+      "description" : "SUCCESS, INVALID_INPUT, NOT_FOUND or ERROR.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "resultMessage" : {
+      "title" : "Result Message",
+      "description" : "Summary with counts; show it first.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

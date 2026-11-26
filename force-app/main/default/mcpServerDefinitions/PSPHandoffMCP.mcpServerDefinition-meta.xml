@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Zenthera Patient Support Program (demo, fictional data): read-only care team handoff. Writes a handoff for one patient from Salesforce facts with a prompt template. Creates, changes or posts nothing.</description>
+    <masterLabel>PSP Handoff MCP</masterLabel>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>fa:flow-PSP_Care_Team_Handoff_Summary</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>PSP_Care_Team_Handoff_Summary</operation>
+        </apiDefinition>
+        <descriptionOverride>Read-only. Prepares a care team handoff for ONE Zenthera Patient Support Program patient (demo, fictional): reads the facts from Salesforce records and writes the handoff with a prompt template in fixed sections (summary, patient and therapy, refill status from recorded shipments only, open issues, points to note, non-clinical next steps, data as of). Input: enrollmentNumber (ENR-..., a sentence that contains it also works). Returns resultCode (SUCCESS, AI_UNAVAILABLE = factual handoff shown, INVALID_INPUT, NOT_FOUND, ERROR), summary (show exactly as written), resultMessage. Never add facts, never give medical advice, never say whether the patient takes the medication; a safety case appears only as in human safety review. Use it only in a direct message; it never posts to a channel.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>PSP_Care_Team_Handoff_Summaryflow_PSP_Care_Team_Handoff_Summary</toolName>
+        <toolTitle>PSP_Care_Team_Handoff_Summary</toolTitle>
+    </tools>
+</McpServerDefinition>

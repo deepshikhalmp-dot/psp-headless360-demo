@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<McpServerDefinition xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Zenthera Patient Support Program (demo, fictional data): tools for patient services coordinators. Tools: enroll a patient, refill history, patient 360 profile.</description>
+    <masterLabel>PSP Patient Services MCP</masterLabel>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>fa:flow-PSP_Enroll_Patient</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>PSP_Enroll_Patient</operation>
+        </apiDefinition>
+        <descriptionOverride>Enrolls ONE patient in the Zenthera Patient Support Program (demo, fictional patients). Use when asked to enroll or register a patient. Required: firstName, lastName, birthdate (YYYY-MM-DD), therapy (exactly Zenthera 50 mg or Zenthera 100 mg), insuranceType (Commercial, Medicare, Medicaid or Uninsured), consentGiven (true only if the user says the patient gave consent, else false). Recommended: mobilePhone. Optional: prescriberName. Ask for missing values; never guess birthdate or consent. Finds the patient by name + full birthdate, creates a new patient if none, refuses ambiguous matches and duplicate open enrollments. Returns resultCode (SUCCESS, VALIDATION_ERROR, NO_CONSENT, AMBIGUOUS_MATCH, DUPLICATE_ENROLLMENT, ERROR), resultMessage (show to user), enrollmentNumber (ENR-...), patientId, enrollmentId. Write operation: call once, never retry automatically.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>false</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>false</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>PSP_Enroll_Patientflow_PSP_Enroll_Patient</toolName>
+        <toolTitle>Enroll Patient in Zenthera Program</toolTitle>
+    </tools>
+    <tools>
+        <apiDefinition>
+            <apiIdentifier>aa:apex-PSP_RefillHistoryTool</apiIdentifier>
+            <apiSource>API_CATALOG</apiSource>
+            <operation>PSP_RefillHistoryTool</operation>
+        </apiDefinition>
+        <descriptionOverride>Read-only. Shows a Zenthera Patient Support Program patient&apos;s refill (dispense) history and whether the next refill is ON_TRACK, DUE, LATE or NO_DELIVERED_REFILL. Use for questions about refills, shipments, deliveries, next refill date or how many days late a refill is. Inputs: patientName (full name as recorded) or enrollmentNumber (ENR-...); optional asOfDate (YYYY-MM-DD, default today). Only Delivered shipments count; due date = last Delivered date + days supply; days overdue = days past that date. Returns resultCode (SUCCESS, NOT_FOUND, AMBIGUOUS_MATCH, NO_ENROLLMENT, INVALID_INPUT, ERROR), resultMessage (show to user), refillStatus, nextRefillDueDate, daysOverdue, dispenseHistory. Reports recorded shipments only; never claim the patient took the medication and give no medical advice.</descriptionOverride>
+        <destructive>false</destructive>
+        <idempotent>true</idempotent>
+        <openWorld>false</openWorld>
+        <readOnly>true</readOnly>
+        <returnDirect>false</returnDirect>
+        <toolName>psp_get_refill_history</toolName>
+        <toolTitle>Get Patient Refill History</toolTitle>
+    </tools>
+</McpServerDefinition>

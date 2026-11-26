@@ -1,0 +1,226 @@
+{
+  "type": "lightning__agentforceWidget",
+  "contentBody": {
+    "widgetBody": {
+      "definition": "tile/widget",
+      "children": [
+        {
+          "definition": "tile/column",
+          "attributes": {
+            "align": "stretch",
+            "gap": "md"
+          },
+          "children": [
+            {
+              "definition": "tile/text",
+              "attributes": {
+                "text": "{!$attrs.title}",
+                "variant": "h2"
+              }
+            },
+            {
+              "definition": "tile/text",
+              "attributes": {
+                "text": "{!$attrs.summary}",
+                "variant": "caption"
+              }
+            },
+            {
+              "definition": "tile/row",
+              "attributes": {
+                "gap": "sm",
+                "align": "center",
+                "justify": "start",
+                "isWrapped": true
+              },
+              "children": [
+                {
+                  "definition": "tile/badge",
+                  "attributes": {
+                    "label": "{!$attrs.highLabel}",
+                    "variant": "error"
+                  }
+                },
+                {
+                  "definition": "tile/badge",
+                  "attributes": {
+                    "label": "{!$attrs.mediumLabel}",
+                    "variant": "warning"
+                  }
+                },
+                {
+                  "definition": "tile/badge",
+                  "attributes": {
+                    "label": "{!$attrs.lowLabel}",
+                    "variant": "info"
+                  }
+                },
+                {
+                  "definition": "tile/badge",
+                  "attributes": {
+                    "label": "{!$attrs.dataGapLabel}",
+                    "variant": "secondary"
+                  }
+                }
+              ]
+            },
+            {
+              "definition": "tile/container",
+              "meta": {
+                "if": "{!$attrs.hasHigh}"
+              },
+              "attributes": {
+                "variant": "error"
+              },
+              "children": [
+                {
+                  "definition": "tile/column",
+                  "attributes": {
+                    "align": "stretch",
+                    "gap": "xs"
+                  },
+                  "children": [
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "HIGH",
+                        "variant": "h4"
+                      }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "{!$attrs.highItems}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "definition": "tile/container",
+              "meta": {
+                "if": "{!$attrs.hasMedium}"
+              },
+              "attributes": {
+                "variant": "warning"
+              },
+              "children": [
+                {
+                  "definition": "tile/column",
+                  "attributes": {
+                    "align": "stretch",
+                    "gap": "xs"
+                  },
+                  "children": [
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "MEDIUM",
+                        "variant": "h4"
+                      }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "{!$attrs.mediumItems}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "definition": "tile/container",
+              "meta": {
+                "if": "{!$attrs.hasLow}"
+              },
+              "attributes": {
+                "variant": "info"
+              },
+              "children": [
+                {
+                  "definition": "tile/column",
+                  "attributes": {
+                    "align": "stretch",
+                    "gap": "xs"
+                  },
+                  "children": [
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "LOW",
+                        "variant": "h4"
+                      }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "{!$attrs.lowItems}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "definition": "tile/container",
+              "meta": {
+                "if": "{!$attrs.hasDataGaps}"
+              },
+              "attributes": {
+                "variant": "default"
+              },
+              "children": [
+                {
+                  "definition": "tile/column",
+                  "attributes": {
+                    "align": "stretch",
+                    "gap": "xs"
+                  },
+                  "children": [
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "Data gaps",
+                        "variant": "h4"
+                      }
+                    },
+                    {
+                      "definition": "tile/text",
+                      "attributes": {
+                        "text": "{!$attrs.dataGapItems}"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "definition": "tile/text",
+              "meta": {
+                "if": "{!$attrs.hasNoItems}"
+              },
+              "attributes": {
+                "text": "No program exceptions found."
+              }
+            },
+            {
+              "definition": "tile/separator",
+              "attributes": {
+                "orientation": "horizontal"
+              }
+            },
+            {
+              "definition": "tile/text",
+              "attributes": {
+                "text": "{!$attrs.footer}",
+                "variant": "caption"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

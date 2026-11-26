@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Program__c</fullName>
+    <description>The patient support program the patient is enrolled in. One program today; more can be added later.</description>
+    <inlineHelpText>Select the support program for this enrollment.</inlineHelpText>
+    <label>Program</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value><fullName>Zenthera Patient Support Program</fullName><default>true</default><label>Zenthera Patient Support Program</label></value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

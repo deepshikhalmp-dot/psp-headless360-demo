@@ -1,0 +1,8 @@
+08:37:43.6 (6124667)|USER_INFO|[EXTERNAL]|005gL00000QFTlt|deepshikhaheadless@kpmg.com|(GMT-08:00) Pacific Standard Time (America/Los_Angeles)|GMT-08:00
+08:37:43.6 (6255003)|CODE_UNIT_STARTED|[EXTERNAL]|01pgL00000MnaYj|PSP_P0_ProbeAction.getOpenCaseSummary(List<PSP_P0_ProbeAction.Request>)
+08:37:43.6 (26275221)|SOQL_EXECUTE_BEGIN|[47]|Aggregations:0|SELECT Id, Name FROM Account WHERE (IsPersonAccount = TRUE AND Name = :tmpVar1) WITH USER_MODE LIMIT 200
+08:37:43.6 (49685877)|SOQL_EXECUTE_BEGIN|[59]|Aggregations:0|SELECT Id, AccountId, CaseNumber, Subject, Priority, CreatedDate FROM Case WHERE (AccountId = :tmpVar1 AND IsClosed = FALSE) WITH USER_MODE ORDER BY CreatedDate DESC NULLS FIRST, CaseNumber
+08:37:43.6 (65164838)|CODE_UNIT_FINISHED|PSP_P0_ProbeAction.getOpenCaseSummary(List<PSP_P0_ProbeAction.Request>)
+08:37:43.75 (75062215)|USER_INFO|[EXTERNAL]|005gL00000QFTlt|deepshikhaheadless@kpmg.com|(GMT-08:00) Pacific Standard Time (America/Los_Angeles)|GMT-08:00
+08:37:43.75 (75092604)|CODE_UNIT_STARTED|[EXTERNAL]|ApexValueJsonSerializer
+08:37:43.75 (75178030)|CODE_UNIT_FINISHED|ApexValueJsonSerializer

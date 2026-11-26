@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prescriber_Name__c</fullName>
+    <description>The prescribing doctor, so the care team knows whom to contact about therapy changes.</description>
+    <inlineHelpText>Enter the prescribing doctor’s full name, for example Dr. Anita Rao.</inlineHelpText>
+    <label>Prescriber Name</label>
+    <length>80</length>
+    <required>false</required>
+    <type>Text</type>
+</CustomField>

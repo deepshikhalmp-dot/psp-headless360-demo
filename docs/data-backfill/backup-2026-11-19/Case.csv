@@ -1,0 +1,34 @@
+Id,CaseNumber,AccountId,Account.Name,ContactId,Contact.Name,Subject,Description,Status,IsClosed,Priority,Origin,Type,PSP_Issue_Category__c,PSP_Dispense__c,CreatedDate,CreatedBy.Name,LastModifiedDate,OwnerId,Owner.Name
+500gL00001h79dBQAQ,00001068,001gL000029ZZ6ZQAW,Sonali Singh,003gL00001GgoXVQAZ,Sonali Singh,allergy,test,New,False,Medium,Website,,,,2026-11-16T22:28:51.000+0000,Sandhu Vyshnavi,2026-11-16T22:28:58.000+0000,00GgL00000L4QvHUAV,General
+500gL00001hIcf3QAC,00001070,001gL000029dxV3QAI,Riya Demo Sharma,003gL00001GihFdQAJ,Riya Demo Sharma,[Shipment Delay] Delayed medication shipment,"Backend test: patient reports that Zenthera 50 mg shipment DSP-0016 is delayed.
+
+---
+Issue category: Shipment Delay
+Patient: Riya Demo Sharma | Enrollment: ENR-0007 (Zenthera 50 mg)
+Logged through the PSP Patient Services tools after user confirmation.",New,False,Medium,Slack,Product Support,,,2026-11-17T15:27:29.000+0000,Sandhu Vyshnavi,2026-11-17T15:27:42.000+0000,00GgL00000L4QvHUAV,General
+500gL00001hGpV9QAK,00001071,001gL000029dxV3QAI,Riya Demo Sharma,003gL00001GihFdQAJ,Riya Demo Sharma,[SAFETY REVIEW] Possible Adverse Event - Patient reports mild headache after dose,"Backend test (fictional): patient mentioned a mild headache after taking Zenthera.
+
+---
+Issue category: Possible Adverse Event
+Patient: Riya Demo Sharma | Enrollment: ENR-0007 (Zenthera 50 mg)
+Logged through the PSP Patient Services tools after user confirmation.
+SAFETY REVIEW REQUIRED: possible adverse event reported. Route to the safety / pharmacovigilance team for human review. No medical advice was given and no regulatory report has been submitted automatically.",New,False,High,Slack,Product Support,,,2026-11-17T15:27:37.000+0000,Sandhu Vyshnavi,2026-11-17T15:27:41.000+0000,00GgL00000L4QvLUAV,Priority
+500gL00001hKU3tQAG,00001072,001gL000029dxV3QAI,Riya Demo Sharma,003gL00001GihFdQAJ,Riya Demo Sharma,[Shipment Delay] Delayed medication shipment,"Patient contacted the support team because the shipment is delayed. Related shipment: DSP-0016 (Zenthera 50 mg).
+
+---
+Issue category: Shipment Delay
+Patient: Riya Demo Sharma | Enrollment: ENR-0007 (Zenthera 50 mg)
+Logged through the PSP Patient Services tools after user confirmation.",New,False,Medium,Slack,Product Support,,,2026-11-17T16:58:54.000+0000,DEEPSHIKHA VERMA DEEPSHIKHA VERMA,2026-11-17T16:58:59.000+0000,00GgL00000L4QvHUAV,General
+500gL00001hKj69QAC,00001073,001gL000029dxV3QAI,Riya Demo Sharma,003gL00001GihFdQAJ,Riya Demo Sharma,[Shipment Delay] Delayed Zenthera medication shipment,"Patient Riya Demo Sharma reported that shipment DSP-0016 of Zenthera 50 mg is delayed. The patient is requesting an update on shipment status.
+
+---
+Issue category: Shipment Delay
+Patient: Riya Demo Sharma | Enrollment: ENR-0007 (Zenthera 50 mg)
+Logged through the PSP Patient Services tools after user confirmation.",New,False,Medium,Slack,Product Support,,,2026-11-17T17:09:43.000+0000,DEEPSHIKHA VERMA DEEPSHIKHA VERMA,2026-11-17T17:09:45.000+0000,00GgL00000L4QvHUAV,General
+500gL00001hTwiTQAS,00001074,001gL00002A92DVQAZ,Meera Demo Nov18,003gL00001H20xhQAB,Meera Demo Nov18,[Insurance Support] Demo - insurance document verification,"Patient requested assistance verifying insurance documents for the Zenthera support program.
+
+---
+Issue category: Insurance Support
+Patient: Meera Demo Nov18 | Enrollment: ENR-0016 (Zenthera 50 mg)
+Logged through the PSP Patient Services tools after user confirmation.",New,False,Medium,Slack,Account Support,,,2026-11-18T07:54:25.000+0000,DEEPSHIKHA VERMA DEEPSHIKHA VERMA,2026-11-18T07:54:30.000+0000,00GgL00000L4QvHUAV,General
+500gL00001hUEnRQAW,00001075,001gL00002A9EzRQAV,Mriduka Sharma,003gL00001H2IcrQAF,Mriduka Sharma,side effect,test,New,False,Medium,Website,,,,2026-11-18T08:15:01.000+0000,DEEPSHIKHA VERMA DEEPSHIKHA VERMA,2026-11-18T08:15:17.000+0000,00GgL00000L4QvHUAV,General

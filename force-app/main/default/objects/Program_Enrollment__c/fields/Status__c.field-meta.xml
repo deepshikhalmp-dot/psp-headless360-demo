@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <description>Where the patient is in the program lifecycle, used for follow-up and reporting.</description>
+    <inlineHelpText>Enrolled = signed up; Active = on therapy; On Hold = paused; Discontinued = left the program.</inlineHelpText>
+    <label>Status</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Enrolled</fullName>
+                <default>true</default>
+                <label>Enrolled</label>
+            </value>
+            <value>
+                <fullName>Active</fullName>
+                <default>false</default>
+                <label>Active</label>
+            </value>
+            <value>
+                <fullName>On Hold</fullName>
+                <default>false</default>
+                <label>On Hold</label>
+            </value>
+            <value>
+                <fullName>Discontinued</fullName>
+                <default>false</default>
+                <label>Discontinued</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

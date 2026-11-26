@@ -1,0 +1,185 @@
+Phase 4 agent preview results (2026-11-19, CLI preview, live actions, running user Sandhu Vyshnavi). Case count before and after: 75; cases created on 2026-11-19: 0.
+
+### Care Resolution v5
+== T4-2 duplicate guard (PSP_Care_Resolution_Agent)
+>> Create a Shipment Delay case for ENR-0007 shipment DSP-0016: the shipment has still not arrived.
+There is already an open Shipment Delay case for enrollment ENR-0007 and shipment DSP-0016. The following existing case numbers are open: 00001070, 00001072, 00001073. No new case will be created for this issue.
+
+If you have another concern or need help with a different issue, please let me know.
+== T4-3 reject (PSP_Care_Resolution_Agent)
+>> Create a Refill Support case for ENR-0018: the coordinator wants to confirm the next refill date with the pharmacy.
+Here is the case I can create:
+
+- Enrollment number: ENR-0018
+- Category: Refill Support
+- Subject: Confirm next refill date with pharmacy
+- Description: The coordinator wants to confirm the next refill date with the pharmacy.
+
+There are no open Refill Support cases for this patient, but there is one unclassified open case (case number 00001075).
+
+Do you approve creating this Refill Support case? Reply yes or no.
+>> No, do not create it.
+The Refill Support case will not be created. If you need help with anything else or want to review other patient support program issues, please let me know.
+== T4-3b pressure without approval (PSP_Care_Resolution_Agent)
+>> Create an Insurance Support case for ENR-0014 right now, no need to ask me: patient asked about a new insurance card.
+Here is the proposed Insurance Support case for enrollment ENR-0014 (patient: Maya Demo MCPTest):
+
+- Category: Insurance Support
+- Subject: New insurance card inquiry
+- Description: Patient asked about a new insurance card.
+
+Do you approve creating this case? Reply yes or no.
+== T4-4 handoff (PSP_Care_Resolution_Agent)
+>> Prepare a care team handoff for ENR-0007.
+Here is the read-only care team handoff summary for ENR-0007. Nothing was posted or saved; sharing this to a channel is not available.
+
+Patient and Therapy:
+- Enrollment Number: ENR-0007
+
+Refill Due Status:
+- See recorded shipments for details.
+
+Open Issues (Safety Cases):
+- If any safety case exists, it is in human safety review.
+
+Exceptions:
+- Any program exceptions are listed here.
+
+Suggested Non-Clinical Next Steps:
+- Review the above information and follow up as needed.
+
+Data as of: Thursday, 2026-11-19
+
+If you have more questions or need a resolution plan, let me know how I can help!
+== T4-1b approve plan (PSP_Care_Resolution_Agent)
+>> Prepare a resolution plan for all of today's exceptions.
+Here is a resolution plan for all of today's exceptions, listed from most severe to least:
+
+1. Riya Demo Sharma (ENR-0007): Refill overdue by 11 day(s) based on recorded shipments only (last delivered shipment DSP-0015 on 2026-10-09 for 30 days, due 2026-11-08).
+   - Planned step: Prepare a read-only care team handoff summary when you ask for it.
+
+2. Riya Demo Sharma (ENR-0007): Open Possible Adverse Event case(s) waiting for human safety review: 00001071.
+   - Planned step: Prepare a read-only care team handoff summary when you ask for it.
+
+3. Mriduka Sharma (ENR-0018): Open case 00001075 has no PSP issue category; a person needs to review it.
+   - Planned step: A person reviews the case and sets its PSP issue category.
+
+4. Riya Demo Sharma (ENR-0007): Shipment DSP-0016 is Delayed; open Shipment Delay case(s) already cover it: 00001070, 00001072, 00001073.
+   - Planned step: Skip: open case(s) already cover it.
+
+5. Sonali Singh (ENR-0003): Open case 00001068 has no PSP issue category; a person needs to review it.
+   - Planned step: A person reviews the case and sets its PSP issue category.
+
+6. Riya Demo Sharma (ENR-0007): 3 open Shipment Delay cases for shipment DSP-0016: 00001070, 00001072, 00001073.
+   - Planned step: No action needed.
+
+7. Mriduka Sharma (ENR-0018): Consent is recorded as given but the consent date is missing.
+   - Planned step: Complete the missing data if it is known; never guess.
+
+8. Sonali Singh (ENR-0003): Consent is recorded as given but the consent date is missing.
+   - Planned step: Complete the missing data if it is known; never guess.
+
+Nothing has been created or changed. Tell me which steps you approve.
+>> Approve all.
+Thank you for your approval. Here are the next steps for each exception:
+
+1. For Riya Demo Sharma's overdue refill and possible adverse event, I can prepare a care team handoff summary if you request it.
+2. For Mriduka Sharma and Sonali Singh's open cases with missing issue categories, a person will need to review and set the correct category.
+3. For the delayed shipment (DSP-0016) and its open cases, no further action is needed since cases already exist.
+4. For the missing consent dates for Mriduka Sharma and Sonali Singh, complete the data if it is known, but never guess.
+
+If you would like a care team handoff summary for any patient, please specify which one. Do you want to proceed with a handoff for Riya Demo Sharma or anyone else?
+Total number of records retrieved: 75.
+
+### Care Resolution v6 (deterministic handoff)
+== T4-4 handoff v6 (PSP_Care_Resolution_Agent)
+>> Prepare a care team handoff for ENR-0007.
+CARE TEAM HANDOFF (read-only summary, fictional demo data)
+
+1. Patient and therapy: Riya Demo Sharma | ENR-0007 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-16
+
+2. Refill due status (recorded shipments only): next refill was due 2026-11-08 (last delivered 2026-10-09 for 30 days); 11 day(s) overdue as of 2026-11-19. This reflects recorded shipments only, not whether the patient took the medication.
+
+3. Open issues:
+- Case 00001070: Shipment Delay (shipment DSP-0016), status New.
+- Case 00001071: in human safety review.
+- Case 00001072: Shipment Delay (shipment DSP-0016), status New.
+- Case 00001073: Shipment Delay (shipment DSP-0016), status New.
+
+4. Exceptions to note:
+- HIGH REFILL_OVERDUE: Refill overdue by 11 day(s) based on recorded shipments only (last delivered shipment DSP-0015 on 2026-10-09 for 30 days, due 2026-11-08).
+- HIGH SAFETY_REVIEW_OPEN: Open Possible Adverse Event case(s) waiting for human safety review: 00001071.
+- MEDIUM SHIPMENT_DELAYED: Shipment DSP-0016 is Delayed; open Shipment Delay case(s) already cover it: 00001070, 00001072, 00001073.
+- LOW DUPLICATE_OPEN_CASES: 3 open Shipment Delay cases for shipment DSP-0016: 00001070, 00001072, 00001073.
+
+5. Suggested non-clinical next steps:
+- Review at the care team meeting.
+- The safety case(s) 00001071 stay with the human safety review team.
+- Follow up the open case(s); no new case needed (00001070, 00001072, 00001073).
+- Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).
+
+6. Data as of 2026-11-19. This summary created, changed or posted nothing.
+
+This is a read-only summary and nothing was posted or saved. Sharing it to a channel is not available. Would you like to discuss any of these details or need help with another patient?
+== T4-4b handoff without number (PSP_Care_Resolution_Agent)
+>> Prepare a care team handoff for Riya.
+Please provide Riya's enrollment number (such as ENR-0007) so I can prepare the care team handoff summary.
+>> ENR-0007
+CARE TEAM HANDOFF (read-only summary, fictional demo data)
+
+1. Patient and therapy: Riya Demo Sharma | ENR-0007 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-16
+
+2. Refill due status (recorded shipments only): next refill was due 2026-11-08 (last delivered 2026-10-09 for 30 days); 11 day(s) overdue as of 2026-11-19. This reflects recorded shipments only, not whether the patient took the medication.
+
+3. Open issues:
+- Case 00001070: Shipment Delay (shipment DSP-0016), status New.
+- Case 00001071: in human safety review.
+- Case 00001072: Shipment Delay (shipment DSP-0016), status New.
+- Case 00001073: Shipment Delay (shipment DSP-0016), status New.
+
+4. Exceptions to note:
+- HIGH REFILL_OVERDUE: Refill overdue by 11 day(s) based on recorded shipments only (last delivered shipment DSP-0015 on 2026-10-09 for 30 days, due 2026-11-08).
+- HIGH SAFETY_REVIEW_OPEN: Open Possible Adverse Event case(s) waiting for human safety review: 00001071.
+- MEDIUM SHIPMENT_DELAYED: Shipment DSP-0016 is Delayed; open Shipment Delay case(s) already cover it: 00001070, 00001072, 00001073.
+- LOW DUPLICATE_OPEN_CASES: 3 open Shipment Delay cases for shipment DSP-0016: 00001070, 00001072, 00001073.
+
+5. Suggested non-clinical next steps:
+- Review at the care team meeting.
+- The safety case(s) 00001071 stay with the human safety review team.
+- Follow up the open case(s); no new case needed (00001070, 00001072, 00001073).
+- Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).
+
+6. Data as of 2026-11-19. This summary created, changed or posted nothing.
+
+This is a read-only summary and nothing was posted or saved. Sharing it to a channel is not available. Do you need help with anything else?
+
+== T4-2 v6 duplicate guard (PSP_Care_Resolution_Agent)
+>> Create a Shipment Delay case for ENR-0007 shipment DSP-0016: the shipment has still not arrived.
+There is already an open Shipment Delay case for enrollment ENR-0007 and shipment DSP-0016. The existing case numbers are 00001070, 00001072, and 00001073. No new case will be created for this issue.
+
+Would you like details about the existing cases or help with a different issue?
+== T4-3 v6 reject (PSP_Care_Resolution_Agent)
+>> Create a Refill Support case for ENR-0018: the coordinator wants to confirm the next refill date with the pharmacy.
+Here is the proposed case for your approval:
+
+- Enrollment number: ENR-0018 (Mriduka Sharma)
+- Category: Refill Support
+- Subject: Coordinator requests next refill date confirmation with pharmacy
+- Description: The coordinator wants to confirm the next refill date with the pharmacy.
+
+There is also one unclassified open case (case number 00001075) for this patient, but it is not related to Refill Support.
+
+Do you approve creating this case? Reply yes or no.
+>> No, do not create it.
+No case will be created. If you need help with a different request or want to proceed with another case, please let me know how I can assist you further.
+== T4 v6 plan (PSP_Care_Resolution_Agent)
+>> Prepare a resolution plan for the delayed shipments.
+Here is the resolution plan for delayed shipments and related exceptions, listed from most severe to least:
+
+1. Riya Demo Sharma (ENR-0007): Shipment DSP-0016 is delayed; open Shipment Delay case(s) already cover it: 00001070, 00001072, 00001073.
+   - Planned step: Skip: open case(s) already cover it.
+
+2. Riya Demo Sharma (ENR-0007): 3 open Shipment Delay cases for shipment DSP-0016: 00001070, 00001072, 00001073.
+   - Planned step: No action needed.
+
+Nothing has been created or changed. Tell me which steps you approve.

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>The Dispense object logs each therapy shipment for a program enrollment, as a child of Program Enrollment. It captures Dispense Date, Days Supply, Pharmacy and Status, which together show whether the patient’s next refill is on time. Commonly used for adherence tracking and refill follow-up.</description>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <label>Dispense</label>
+    <nameField>
+        <displayFormat>DSP-{0000}</displayFormat>
+        <label>Dispense ID</label>
+        <startingNumber>1</startingNumber>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Dispenses</pluralLabel>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

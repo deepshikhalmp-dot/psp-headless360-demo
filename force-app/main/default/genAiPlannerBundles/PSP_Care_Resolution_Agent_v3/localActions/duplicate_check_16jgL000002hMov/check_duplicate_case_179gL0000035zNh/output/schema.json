@@ -1,0 +1,54 @@
+{
+  "unevaluatedProperties" : false,
+  "properties" : {
+    "canCreate" : {
+      "title" : "Can Create",
+      "description" : "True only when no open case blocks a new one; creation still needs approval.",
+      "lightning:type" : "lightning__booleanType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "matchingCaseNumbers" : {
+      "title" : "Matching Case Numbers",
+      "description" : "Open cases that already cover the issue.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "possibleDuplicateCaseNumbers" : {
+      "title" : "Possible Duplicate Case Numbers",
+      "description" : "Open cases of that category without a shipment link; a person decides.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "resultCode" : {
+      "title" : "Result Code",
+      "description" : "NO_DUPLICATE, EXISTING_CASE, POSSIBLE_DUPLICATE, INVALID_INPUT, NOT_FOUND or ERROR.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "resultMessage" : {
+      "title" : "Result Message",
+      "description" : "One sentence to show the user.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    },
+    "unclassifiedOpenCaseNumbers" : {
+      "title" : "Unclassified Open Case Numbers",
+      "description" : "Open cases of the patient without a category, for review.",
+      "lightning:type" : "lightning__textType",
+      "lightning:isPII" : false,
+      "copilotAction:isDisplayable" : false,
+      "copilotAction:isUsedByPlanner" : true
+    }
+  },
+  "lightning:type" : "lightning__objectType"
+}

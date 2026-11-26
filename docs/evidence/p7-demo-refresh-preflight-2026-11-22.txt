@@ -1,0 +1,51 @@
+compiled True success True  
+PREFLIGHT 1 EXCEPTIONS SUCCESS | As of 2026-11-22: 12 item(s) for 6 patient(s) out of 12 enrollment(s) checked (2 high, 7 medium, 1 low, 2 data gap(s)). Refill dates are based on recorded shipments only.
+PREFLIGHT 1 ITEMS
+HIGH | Riya Demo Sharma (ENR-0007) | REFILL_OVERDUE | Refill overdue by 14 day(s) based on recorded shipments only (last delivered shipment DSP-0015 on 2026-10-09 for 30 days, due 2026-11-08). | Suggested: PREPARE_HANDOFF
+HIGH | Riya Demo Sharma (ENR-0007) | SAFETY_REVIEW_OPEN | Open Possible Adverse Event case(s) waiting for human safety review: 00001071. | Suggested: PREPARE_HANDOFF
+MEDIUM | Asha Manual Demo (ENR-0057) | SHIPMENT_DELAYED | Shipment DSP-0072 is Delayed; open Shipment Delay case(s) already cover it: 00001125. | Suggested: SKIP_EXISTING_CASE
+MEDIUM | Ayush Mehta (ENR-0059) | SHIPMENT_DELAYED | Shipment DSP-0073 is Delayed; no open Shipment Delay case covers it. | Suggested: CREATE_CASE
+MEDIUM | Ayush Mehta (ENR-0059) | UNCATEGORISED_OPEN_CASE | Open case 00001127 has no PSP issue category; a person needs to review it. | Suggested: TRIAGE_CASE
+MEDIUM | Mriduka Sharma (ENR-0018) | UNCATEGORISED_OPEN_CASE | Open case 00001075 has no PSP issue category; a person needs to review it. | Suggested: TRIAGE_CASE
+MEDIUM | Neha Slack Demo (ENR-0058) | UNCATEGORISED_OPEN_CASE | Open case 00001126 has no PSP issue category; a person needs to review it. | Suggested: TRIAGE_CASE
+MEDIUM | Riya Demo Sharma (ENR-0007) | SHIPMENT_DELAYED | Shipment DSP-0016 is Delayed; open Shipment Delay case(s) already cover it: 00001070, 00001072, 00001073. | Suggested: SKIP_EXISTING_CASE
+MEDIUM | Sonali Singh (ENR-0003) | UNCATEGORISED_OPEN_CASE | Open case 00001068 has no PSP issue category; a person needs to review it. | Suggested: TRIAGE_CASE
+LOW | Riya Demo Sharma (ENR-0007) | DUPLICATE_OPEN_CASES | 3 open Shipment Delay cases for shipment DSP-0016: 00001070, 00001072, 00001073. | Suggested: NONE
+INFO | Mriduka Sharma (ENR-0018) | DATA_INCOMPLETE | Consent is recorded as given but the consent date is missing. | Suggested: REVIEW_DATA
+INFO | Sonali Singh (ENR-0003) | DATA_INCOMPLETE | Consent is recorded as given but the consent date is missing. | Suggested: REVIEW_DATA
+PREFLIGHT 2 DELAYED 3 item(s)
+MEDIUM | Asha Manual Demo (ENR-0057) | SHIPMENT_DELAYED | Shipment DSP-0072 is Delayed; open Shipment Delay case(s) already cover it: 00001125. | Suggested: SKIP_EXISTING_CASE
+MEDIUM | Ayush Mehta (ENR-0059) | SHIPMENT_DELAYED | Shipment DSP-0073 is Delayed; no open Shipment Delay case covers it. | Suggested: CREATE_CASE
+MEDIUM | Riya Demo Sharma (ENR-0007) | SHIPMENT_DELAYED | Shipment DSP-0016 is Delayed; open Shipment Delay case(s) already cover it: 00001070, 00001072, 00001073. | Suggested: SKIP_EXISTING_CASE
+PREFLIGHT 3 DUPLICATE ENR-0007 / Shipment Delay / DSP-0016 => EXISTING_CASE | matching=00001070, 00001072, 00001073 | unclassified=null
+PREFLIGHT 3 DUPLICATE ENR-0007 / Refill Support / null => EXISTING_CASE | matching=00001124 | unclassified=null
+PREFLIGHT 3 DUPLICATE ENR-0018 / Refill Support / null => NO_DUPLICATE | matching=null | unclassified=00001075
+PREFLIGHT 3 DUPLICATE ENR-0059 / Shipment Delay / DSP-0073 => NO_DUPLICATE | matching=null | unclassified=00001127
+PREFLIGHT 4 HANDOFF SUCCESS
+CARE TEAM HANDOFF (read-only summary, fictional demo data)
+
+1. Patient and therapy: Riya Demo Sharma | ENR-0007 | Zenthera 50 mg | status Enrolled | insurance Commercial | consent given on 2026-11-16
+
+2. Refill due status (recorded shipments only): next refill was due 2026-11-08 (last delivered 2026-10-09 for 30 days); 14 day(s) overdue as of 2026-11-22. This reflects recorded shipments only, not whether the patient took the medication.
+
+3. Open issues:
+- Case 00001070: Shipment Delay (shipment DSP-0016), status New.
+- Case 00001071: in human safety review.
+- Case 00001072: Shipment Delay (shipment DSP-0016), status New.
+- Case 00001073: Shipment Delay (shipment DSP-0016), status New.
+- Case 00001124: Refill Support, status New.
+
+4. Exceptions to note:
+- HIGH REFILL_OVERDUE: Refill overdue by 14 day(s) based on recorded shipments only (last delivered shipment DSP-0015 on 2026-10-09 for 30 days, due 2026-11-08).
+- HIGH SAFETY_REVIEW_OPEN: Open Possible Adverse Event case(s) waiting for human safety review: 00001071.
+- MEDIUM SHIPMENT_DELAYED: Shipment DSP-0016 is Delayed; open Shipment Delay case(s) already cover it: 00001070, 00001072, 00001073.
+- LOW DUPLICATE_OPEN_CASES: 3 open Shipment Delay cases for shipment DSP-0016: 00001070, 00001072, 00001073.
+
+5. Suggested non-clinical next steps:
+- Review at the care team meeting.
+- The safety case(s) 00001071 stay with the human safety review team.
+- Follow up the open case(s); no new case needed (00001070, 00001072, 00001073).
+- Questions about dosing, missed doses or side effects go to the patient's prescriber (911 in an emergency).
+
+6. Data as of 2026-11-22. This summary created, changed or posted nothing.
+PREFLIGHT 5 COUNTS cases=79 pspOpenCases=11 enrollments=12 dispenses=6 today=2026-11-22

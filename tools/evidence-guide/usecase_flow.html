@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  body { margin:0; font-family: Calibri, "Segoe UI", Arial, sans-serif; background:#fff; color:#1d2733; }
+  #flow { width:1500px; padding:28px 32px; box-sizing:border-box; }
+  h2 { margin:0 0 6px; font-size:26px; color:#0B5CAB; }
+  .sub { margin:0 0 22px; font-size:17px; color:#555b66; }
+  .row { display:flex; gap:18px; align-items:stretch; }
+  .box { border-radius:10px; padding:14px 16px; font-size:17px; line-height:1.35; box-sizing:border-box; }
+  .box b { display:block; font-size:19px; margin-bottom:4px; }
+  .who { background:#0B5CAB; color:#fff; text-align:center; margin:0 auto; width:520px; }
+  .who b { font-size:21px; }
+  .chan { flex:1; background:#E8F1FB; border:2px solid #0B5CAB; }
+  .logic { background:#FFF4E0; border:2px solid #C77700; text-align:center; }
+  .data { flex:1; background:#E9F6EC; border:2px solid #2E7D32; text-align:center; }
+  .arrows { display:flex; gap:18px; margin:4px 0; } .arrows div { flex:1; text-align:center; font-size:24px; color:#555b66; }
+  .tag { display:inline-block; font-size:14px; padding:2px 8px; border-radius:20px; background:#fff; border:1px solid #0B5CAB; color:#0B5CAB; margin:3px 4px 0 0; }
+  .steps { display:flex; gap:10px; margin-top:26px; align-items:stretch; }
+  .step { flex:1; background:#F4F6F9; border:1px solid #c9d1db; border-radius:10px; padding:12px; font-size:15.5px; line-height:1.3; position:relative; }
+  .step .n { display:inline-block; width:26px; height:26px; border-radius:50%; background:#0B5CAB; color:#fff; text-align:center; line-height:26px; font-weight:bold; margin-right:6px; }
+  .step b { font-size:17px; }
+  .step .c { display:block; margin-top:6px; font-size:13.5px; color:#0B5CAB; }
+  .step.w { background:#FDEDEC; border-color:#C0392B; }
+  .step.w .n { background:#C0392B; }
+  .chev { align-self:center; font-size:24px; color:#8a94a3; }
+  .lab { font-size:16px; font-weight:bold; color:#0B5CAB; margin:22px 0 8px; }
+  .guard { margin-top:16px; font-size:15px; color:#555b66; border-top:1px solid #dde3ea; padding-top:10px; }
+</style></head>
+<body><div id="flow">
+  <h2>Zenthera Patient Support Program on Salesforce Headless 360</h2>
+  <p class="sub">One set of business logic and data in Salesforce, reached through three front doors. All data is fictional.</p>
+
+  <div class="box who"><b>Patient Services Coordinator</b>enrolls patients, tracks refills, answers program questions, logs cases, hands over to the care team, works the daily exceptions list</div>
+  <div class="arrows"><div>▼</div><div>▼</div><div>▼</div></div>
+
+  <div class="row">
+    <div class="box chan"><b>1. Salesforce app</b>Patient Support Program Lightning app. Manual work on record pages: patients, enrollments, shipments, cases.
+      <div><span class="tag">Lightning app</span><span class="tag">record pages</span></div></div>
+    <div class="box chan"><b>2. Slack: Slackbot</b>Direct message in Slack. Slackbot calls 6 Salesforce-hosted PSP MCP servers, running as the signed-in Salesforce user.
+      <div><span class="tag">Slackbot DM</span><span class="tag">Salesforce-hosted MCP</span></div></div>
+    <div class="box chan"><b>3. Agentforce Coworker</b>"Ask" in Salesforce. Coworker hands the request to 3 specialist agents: Medication Support, Program Knowledge, Care Resolution.
+      <div><span class="tag">Coworker</span><span class="tag">3 specialist agents</span><span class="tag">HXL card</span></div></div>
+  </div>
+  <div class="arrows"><div>▼</div><div>▼</div><div>▼</div></div>
+
+  <div class="box logic"><b>Shared business logic (the same code behind every channel)</b>
+    Apex: refill status, program exceptions, duplicate check, approved case, handoff &nbsp;·&nbsp; Flows: enroll, service case, FAQ answer, handoff summary
+    &nbsp;·&nbsp; Named Query: Patient 360 &nbsp;·&nbsp; Prompt templates: FAQ answer, handoff summary</div>
+  <div class="arrows"><div>▼</div><div>▼</div></div>
+
+  <div class="row">
+    <div class="box data"><b>Salesforce CRM data</b>Patient (Person Account) → Program Enrollment → Dispense (shipment) · Case with PSP issue category</div>
+    <div class="box data"><b>Data 360</b>Program FAQ document, searched by a retriever to ground program answers</div>
+  </div>
+
+  <div class="lab">A coordinator's day, end to end</div>
+  <div class="steps">
+    <div class="step w"><span class="n">1</span><b>Enroll</b> a new patient with consent and insurance<span class="c">App · Slackbot</span></div>
+    <div class="chev">›</div>
+    <div class="step w"><span class="n">2</span><b>Record shipment</b> from the specialty pharmacy<span class="c">App</span></div>
+    <div class="chev">›</div>
+    <div class="step"><span class="n">3</span><b>Refill status</b> from recorded shipments (on track / due / overdue)<span class="c">App · Slackbot · Coworker</span></div>
+    <div class="chev">›</div>
+    <div class="step"><span class="n">4</span><b>Daily exceptions</b> worklist: overdue refills, delayed shipments, pending consent, open safety reviews, uncategorised cases<span class="c">Slackbot · Coworker (HXL card)</span></div>
+    <div class="chev">›</div>
+    <div class="step"><span class="n">5</span><b>Plan + duplicate check</b> before any new case<span class="c">Slackbot · Coworker</span></div>
+    <div class="chev">›</div>
+    <div class="step w"><span class="n">6</span><b>Approved case</b> only after the coordinator says yes and confirms<span class="c">App · Slackbot · Coworker</span></div>
+    <div class="chev">›</div>
+    <div class="step"><span class="n">7</span><b>Program FAQ</b> and <b>care team handoff</b> summary<span class="c">Slackbot · Coworker</span></div>
+  </div>
+  <div class="guard">Red steps write records (only with approval). Grey steps are read-only. Rules compute the facts; AI only words the answer. No clinical advice, no automatic adverse event reports, no patient data in public Slack channels.</div>
+</div></body></html>

@@ -1,0 +1,27 @@
+{
+  "renderer": {
+    "componentOverrides": {
+      "$": {
+        "definition": "@widget/c/pspExceptionsWorklistCard",
+        "attributes": {
+          "title": "{!$attrs.title}",
+          "summary": "{!$attrs.summary}",
+          "highLabel": "{!$attrs.highLabel}",
+          "mediumLabel": "{!$attrs.mediumLabel}",
+          "lowLabel": "{!$attrs.lowLabel}",
+          "dataGapLabel": "{!$attrs.dataGapLabel}",
+          "hasHigh": "{!$attrs.hasHigh}",
+          "hasMedium": "{!$attrs.hasMedium}",
+          "hasLow": "{!$attrs.hasLow}",
+          "hasDataGaps": "{!$attrs.hasDataGaps}",
+          "hasNoItems": "{!$attrs.hasNoItems}",
+          "highItems": "{!$attrs.highItems}",
+          "mediumItems": "{!$attrs.mediumItems}",
+          "lowItems": "{!$attrs.lowItems}",
+          "dataGapItems": "{!$attrs.dataGapItems}",
+          "footer": "{!$attrs.footer}"
+        }
+      }
+    }
+  }
+}

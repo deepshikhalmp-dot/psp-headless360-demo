@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Consent_Given__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Whether the patient has consented to join the program. Enrollment must not proceed without consent.</description>
+    <inlineHelpText>Tick only when the patient has given program consent.</inlineHelpText>
+    <label>Consent Given</label>
+    <type>Checkbox</type>
+</CustomField>
