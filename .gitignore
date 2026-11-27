@@ -129,3 +129,6 @@ tools/evidence-guide/.profile-*/
 # tools: never commit the browser profile or the Python venv
 /tools/evidence-guide/.venv/
 /tools/evidence-guide/.profile-*/
+
+# Claude Code personal settings
+.claude/settings.local.json
