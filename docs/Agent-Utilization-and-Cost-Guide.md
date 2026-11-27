@@ -218,6 +218,8 @@ WHERE timestamp__c > TIMESTAMP '2026-11-26 17:19:00'
 ORDER BY timestamp__c
 ```
 
+For the rules distilled from all of this, see the [Agentforce Developer Guide](Agentforce-Developer-Guide-Cost-and-Quality.md).
+
 ### 6.3 Full guide run on the Medication Support Agent (26 Nov 2026, 19:30–20:40 UTC)
 
 The team's performance and cost guide (v1.1, nine steps) was run end to end on PSP Medication Support Agent v7, with v6 as the before version. The full record, with screenshots for every step, is in [PSP-Medication-Support-Agent-Performance-Cost-Run.docx](PSP-Medication-Support-Agent-Performance-Cost-Run.docx). What it added to this guide:

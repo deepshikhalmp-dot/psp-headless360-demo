@@ -70,6 +70,7 @@ This repository holds only the PSP project. The rest of the demo org's metadata 
 | [docs/Agent-Utilization-and-Cost-Guide.md](docs/Agent-Utilization-and-Cost-Guide.md) | How to measure agent usage, cost and effectiveness, design rules for low token use, and the POC agents' footprint |
 | [docs/Agent-Cost-Precheck-Runbook.md](docs/Agent-Cost-Precheck-Runbook.md) | Step-by-step, Salesforce UI only: check an agent's credit and token use before deploying it |
 | [docs/PSP-Medication-Support-Agent-Performance-Cost-Run.docx](docs/PSP-Medication-Support-Agent-Performance-Cost-Run.docx) | The performance and cost guide run on the Medication Support Agent: every step with screenshots, measured actions, tokens and latency, v6 vs v7, sign-off |
+| [docs/Agentforce-Developer-Guide-Cost-and-Quality.md](docs/Agentforce-Developer-Guide-Cost-and-Quality.md) | Developer guide: design, Agent Script, action and testing rules that keep agents accurate and low on credits and tokens, with measured examples, queries, targets and a release checklist |
 
 ## Deploy and test
 
